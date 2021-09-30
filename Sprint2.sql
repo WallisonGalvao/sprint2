@@ -1,0 +1,29 @@
+CREATE DATABASE Sprint2;
+
+USE Sprint2;
+
+CREATE TABLE Cadastro (
+idCadastro INT PRIMARY KEY AUTO_INCREMENT,
+Nome VARCHAR(40),
+Email VARCHAR(40),
+Telefone CHAR(11),
+Senha CHAR(8),
+Cidade VARCHAR(45),
+Estado CHAR(2)
+);
+
+CREATE TABLE Sensor (
+idSensor INT PRIMARY KEY AUTO_INCREMENT
+);
+
+CREATE TABLE Temperatura (
+idTemperatura INT PRIMARY KEY AUTO_INCREMENT,
+ValorTemperatura DOUBLE,
+DataHora DATETIME
+);
+
+CREATE TABLE Umidade (
+idUmidade INT PRIMARY KEY AUTO_INCREMENT,
+ValorUmidade INT,
+DataHora DATETIME
+);
