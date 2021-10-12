@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Colheita Inteligente</title>
+</head>
+<style>
+    div{
+        background-color: rgb(0, 0, 0, 0.9);
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 80px;
+        border-radius: 15px;
+        color: white;
+        text-decoration: none;
+    }
+    input{
+        padding: 15px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+    }
+    button{
+        background-color: dodgerblue;
+        border: none;
+        padding: 15px;
+        width: 93%;
+        border-radius: 15px;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: deepskyblue;
+    }
+    .div1{
+        color: #a5682a;
+    }
+    #cadastro{
+        color: rgb(255, 255, 255, 0.9);
+        font-style: italic, bolder;
+        font-style: unset;
+    }
+    div a{
+        text-decoration: none;
+        color: white;
+        font-weight: bolder;
+    }
+        
+</style>
+<body background="https://tracan.com.br/wp-content/uploads/2020/03/Coffee-Express-Multi-200-em-campo-1.jpg">
+    <div>
+        <h2 class="div1">Coffe Analytics</h2>
+        <h2>Login</h2>
+        <input type="text" placeholder="Insira o nome">
+        <br><br>
+        <input type="password" id="senha" placeholder="Senha">
+        <br><br>
+        <input type="checkbox" onclick="mostrarSenha()"> Mostrar senha
+        <br><br>
+        <button>Acessar</button>
+        <br><br>
+        Não tem uma conta? <a href="Cadastro.html">Cadastre-se</a> <br><br>
+        <a href="">Esqueci minha senha</a>
+    </div>
+    
+</body>
+</html>
+<script>
+    function mostrarSenha(){
+        var senha = document.getElementById("senha")
+        if (senha.type=="password"){
+            senha.type="text";
+        }else{
+            senha.type="password"
+        }
+    }
+</script>

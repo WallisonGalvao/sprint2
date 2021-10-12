@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+    background-color: black;
+    height: 100px;
+    border: #a5682a solid 5px;
+}
+
+.container{
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar{
+    width: 40%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.header h1{
+    color: #a5682a;
+}
+
+.navbar li{
+    color: #a5682a;
+    font-weight: lighter;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #a5682a;
+}
+
+.navbar .active {
+    font-weight: bolder;
+}
+
+.banner{
+    height: 500px;
+    background-image: url(https://planicie.com.br/blog/wp-content/uploads/2020/02/beneficios-do-cafe.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message{
+    margin-right: 570px;
+    width: 15%;
+    color: white;
+    font-size: 40px;
+}
+
+.message span{
+    font-weight: bolder;
+}
+
+.proposito{
+    height: 600px;
+    background-color: #E5E5E5;
+}
+
+.proposito .container .mvv div img{
+    height: 100px;
+    width: 100px;
+}
+
+.proposito .container .mvv{
+    width: 100%;
+    margin-top: 100px;
+    background-color: #E5E5E5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.proposito .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.proposito .container h2{
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    color: #a5682a;
+}
+
+.proposito .container .mvv div{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.proposito .container .mvv div h3{
+    color: #a5682a;
+    font-weight: bolder;
+    margin: 25px 0;
+}
+
+.footer p{
+    background-color: #a5682a;
+    color: black;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
