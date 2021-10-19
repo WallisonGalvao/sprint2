@@ -8,12 +8,7 @@
 {
     height: 100px;
     background-color: #fff;
-    /* border-style: solid;
-    border-width: 5px; */
-    /* border-color: #e5e5e5; */
-    /* border-radius: 10px; */
-    /* border-radius: 10rem; */
-    /* margin: 100px; */
+  
 }
 
 .container
@@ -159,7 +154,6 @@
    
     margin-top: 50px;
     width: 100%;
-    /* background-color: #E5E5E5; */
     display: flex;
     justify-content: space-between;
 
@@ -339,6 +333,16 @@
     align-items: center;
 }
 
+.banner  h1{
+    margin-top: 70px;
+   margin-bottom: 20px;
+   color: #66271F;
+   font-weight: bolder;
+   margin-bottom: 30px;
+   font-size: 40px;
+   
+}
+
 .banner .formCadastro{
     margin-top: 50px;
     margin-bottom: 80px;
@@ -349,79 +353,21 @@
     width: 60%;
     display: flex;
     align-items: center;
-    flex-direction: row;
+    
     
    
-    justify-content: space-between;
+   
     
 }
 
- .banner  h1{
-     margin-top: 70px;
-    margin-bottom: 20px;
-    color: #66271F;
-    font-weight: bolder;
-    margin-bottom: 30px;
-    font-size: 40px;
-    
-}
 
-.banner .formCadastro div{
+ .formCadastro {
     color: #66271F;
     padding: 2px;
 }
 
 
-.banner .formCadastro .p1 {
-    background: #66271F;
-    height: 100%;
-    width: 40%;
-    border-radius: 15px;
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    
-    align-items: center;
-}
 
-.banner .formCadastro .p1 div h3{
-    color: #fff;
-    font-weight: bolder;
-}
-
-.banner .formCadastro .p1 div input{
-    height: 20px;
-    border-radius: 5px;
-    background: #fff;
-    padding: auto;
- }
-
-
-.banner .formCadastro .p2 {
-    
-    height: 100%;
-    width: 40%;
-    border-radius: 15px;
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    
-    align-items: center;
-}
-
-.banner .formCadastro .p2 div h3{
-    color: #66271F;
-    font-weight: bolder;
-}
-
-.banner .formCadastro .p2 div input{
-    height: 20px;
-    border-radius: 5px;
-    background: #fff;
-    padding: auto;
- }
 
 .banner .formCadastro button{
   

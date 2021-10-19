@@ -42,10 +42,27 @@
         <h1>Cadastro de Representantes</h2>
         <div class="formCadastro">
 
-               <div>
-                   Nome / Razão Social: <input type="text" placeholder="Nome ou Razão Social">
-                   CPF / CNPJ: <input type="text" placeholder="CPF/CNPJ">  
+               <div class="dadosCliente">
+                   Nome / Razão Social: <input type="text" placeholder="Nome ou Razão Social"> <br>
+                   CPF / CNPJ: <input type="text" placeholder="CPF ou CNPJ"> <br>
+                   Email: <input type="email" placeholder="Exemplo: xxxxx@xxxx.com"> <br>
+                   Senha: <input type="password" placeholder="Digite uma senha"> <br>
+                   Confirmar Senha: <input type="password" placeholder="Confirme a senha">  
+                   Telefone Celular: <input type="text" placeholder="(DDD) 9xxxx-xxxx "> 
+                   Telefone Fixo: <input type="text" placeholder="(DDD) xxxx-xxxx "> 
                </div>
+
+               <div class="dadosFazenda">
+                   Nome: <input type="text" placeholder="Nome da Fazenda">
+                   Logradouro: <input type="text" placeholder="Logradouro">
+                   Número: <input type="text" placeholder="Número">
+                   CEP: <input type="text" placeholder="Exemplo: 00000-000"> 
+                   Cidade: <input type="text" placeholder="Nome da Cidade">
+                   Estado: <input type="text" placeholder="Exemplo: SP">
+               </div>
+               <button onclick="validar()">
+                   Cadastrar
+               </button>
                 </div>
                 
                
@@ -54,9 +71,6 @@
                 
                 
                 
-                <button onclick="validar()">
-                    Cadastrar
-                </button>
                 
             </div>
 
