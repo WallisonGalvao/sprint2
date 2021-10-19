@@ -84,10 +84,12 @@
 
 .banner
 {
-    
+    margin-top: 100px;
     height: 100vh;
+    width: 100vw;
     background-image: url(graosBottom.png);
     background-size:cover;
+    background-repeat: no-repeat;
     background-position: center;
     display: flex;
     
@@ -97,6 +99,7 @@
 }
 
 .banner .message{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,10 +205,11 @@
 
     display: flex;
     flex-direction: column;
-    /* height: 100%; */
+    
     align-items: center;
     justify-content: space-evenly;
-    height: 45vw;
+    height: 100vh;
+   
     
 }
 
@@ -216,7 +220,7 @@
 }
 
 #calc {
-    margin-top: 100px;
+    margin-top: 30px;
     margin-bottom: 50px;
     background-color:#e5e5e5;
    
@@ -234,12 +238,14 @@
 
 .banner #calc div{
     
-    color: #000;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     
 }
+
+
 
 .banner #calc div input{
   background-color: #fff;
@@ -248,16 +254,17 @@
   height: 25px;
   padding: 2px;
   border-color: #66271F;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
+  
 
   
 }
 
-.banner #calc h1{
+.banner  h2{
     
     font-weight: bolder;
-    margin-bottom: 50px;
+    font-size: 40px;  
     color: #66271F;
 }
 
@@ -267,46 +274,66 @@
    margin-bottom: 10px;
 }
 
-.banner #calc button{
-    cursor: pointer;
-    background-color: #66271F ;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin: 10px;
+.banner .botoes {
+    
+    display: flex;
+    
+    align-items: center;
+    width: 450px;
+    justify-content: space-around;
+    
+
+
+    
+    
 }
 
-.banner #calc button:hover{
-    cursor: pointer;
-    opacity: 0.8;
-    background-color: #66271F ;
+.banner .botoes button
+{
+    background: rgb(22, 4, 4);
     color: #fff;
+    
+    margin-bottom: 20px;
+    margin-left: 30px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    
+   
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.banner #div_estimativas{
+.banner .botoes button:hover{
+    opacity: 0.9;
+    
+  
+}
+
+.banner  #div_estimativas{
     display: flex;
      text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #e5e5e5;
-    height: 20%;
-    width: 35%;
+    height: 30vh;
+    width: 28vw;
     margin-bottom: 30px;
     border-radius: 25px;
     justify-content: space-evenly;
+    padding: 20px;
    
 
 }
 
 
 
-.banner #div_estimativas div h2{
-    font-weight: 700;
+
+.banner #div_estimativas  h2{
+    font-weight: bolder;
+    font-size: 40px;
     color: #66271F;
     padding: 10px;
     align-items: center;
@@ -315,11 +342,11 @@
 .banner .formCadastro{
     margin-top: 50px;
     margin-bottom: 80px;
-    padding: 25px;
+    padding: 50px 50px;
     border-radius: 30px;
     background-color: #e5e5e5;
-    height: 400px;
-    width: 40%;
+    height: 700vh;
+    width: 60%;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -330,11 +357,12 @@
 }
 
  .banner  h1{
-     margin-top: 30px;
+     margin-top: 70px;
     margin-bottom: 20px;
     color: #66271F;
     font-weight: bolder;
     margin-bottom: 30px;
+    font-size: 40px;
     
 }
 
@@ -346,10 +374,10 @@
 
 .banner .formCadastro .p1 {
     background: #66271F;
-   height: 100%;
-   width: 40%;
-   border-radius: 5px;
-   padding: 2px;
+    height: 100%;
+    width: 40%;
+    border-radius: 15px;
+    padding: 2px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -371,19 +399,20 @@
 
 
 .banner .formCadastro .p2 {
-    background: #66271F;
-   height: 100%;
-   width: 40%;
-   border-radius: 5px;
-   padding: 2px;
+    
+    height: 100%;
+    width: 40%;
+    border-radius: 15px;
+    padding: 2px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
     align-items: center;
 }
 
 .banner .formCadastro .p2 div h3{
-    color: #fff;
+    color: #66271F;
     font-weight: bolder;
 }
 
@@ -397,8 +426,7 @@
 .banner .formCadastro button{
   
     
-    margin-top: 20px;
-    margin-bottom: 20px;
+    
     cursor: pointer;
     background-color: #66271F;
     color: #fff;
@@ -419,26 +447,29 @@
  
 .banner .formLogin{
 
+    margin-top: 30px;
     background: #e5e5e5;
     height: 50%;
-    width: 20%;
-    padding: 30px;
+    width: 28%;
+    padding: 40px;
+    
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    color: #66271F;
+    
     font-weight: 500;
-    color: black;
+    color:#66271F;
 }
 
 .banner .formLogin input{
     height: 30px;
     font-size: 100;
-    padding: auto;
-    border-radius: 5px;
-    color: #0000;
+    padding: 10px;
+    border-radius: 15px;
+    
+   
   
 
 }
@@ -463,12 +494,7 @@
     opacity: 0.8;
 }
 
-.banner .formLogin p {
-    text-decoration: none;
-    color: #111;
 
-
-}
 .banner .formLogin p a {
     text-decoration: none;
     font-weight: bolder;
@@ -478,9 +504,9 @@
 
 .footer
 {
-    margin-top: 20px;
+    margin-top: 50px;
     background-color: #66271F;
-    height: 80px;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -491,5 +517,6 @@
 {
     color: #ffff;
     font-weight: 500;
+    font-size: 12px;
 }
 

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header>
+    
         <nav>
             <div class="header">
                 <div class="container">
@@ -35,12 +35,13 @@
                 </div>
             </div>
         </nav>
-    </header>
+    
 
     <div class="banner">
         <div class="formLogin">
+            <h2>LOGIN</h2>
             <div>
-                <h3>Email</h3>
+                <h3>Email</h3> 
                 <input type="text" id="email" placeholder="Email">
             </div>
 
@@ -73,7 +74,8 @@
 </html>
 
 <script>
-    var senha = document.getElementById("senha")
+    var senha = document.getElementById("senha");
+
     function mostrarSenha(){
         if (senha.type=="password"){
             senha.type="text";

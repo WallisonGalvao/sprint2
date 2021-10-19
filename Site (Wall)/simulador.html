@@ -40,10 +40,10 @@
 
   
         <div class="banner">
-            <div class="blocoSimulador">
+            <!-- <div class="blocoSimulador"> -->
+                <h2>SIMULE AQUI</h2>
                 <div id="calc">
                     <!--Título no topo -->
-                    <h1>Simule aqui</h1>
     
                     <div>
                         <!-- Entrada de informação para tamanho do terreno -->
@@ -53,29 +53,31 @@
     
                     <div>
                         <!-- Entrada de informação para quantidade de sacas por hectare-->
-                        <h3>Quantidade de sacas por hectare:</h3>
+                        <h3>Rendimento de sacas por hectare:</h3>
                         <input id="qtd_por_hectar" type="text" placeholder="Ex: 25">
                     </div>
     
                     <div>
                         <!-- Entrada de informação para valor unitario da saca-->
-                        <h3>Valor unitário da saca:</h3>
+                        <h3>Valor da saca:</h3>
                         <input id="valor_por_saca" type="text" placeholder="R$0.00">
                     </div>
     
-                    <!-- Botão para simular os valores-->
-                    <button onclick="simulador_valores()">Simular valores</button>
-    
-                    <button onclick="limpar_calculadora()">Limpar calculadora</button>
-    
-    
+                    
+                    
                 </div>
                 <!-- identificação do html através de uma div-->
-    
+                <div class="botoes">
+                    <!-- Botão para simular os valores-->
+                <button onclick="simulador_valores()">Simular valores</button> 
+
+                <button onclick="limpar_calculadora()">Limpar calculadora</button>
+                </div>
+                
     
                 <div id="div_estimativas" style="display: none;">
                     
-                        <h2>Estimativa Coffee Analytics</h2>
+                        <h2>ESTIMATIVAS</h2>
                         <p>
                             O lucro total sem perda de 20% é de: R$ <b id="lucroSemPerda"> </b>
                         </p> <br>
@@ -90,9 +92,9 @@
                     
     
                 </div>
-            </div>
+            <!-- </div> -->
            
-        </div
+        </div>
 
 
 
@@ -105,11 +107,11 @@
 
 
 
-    <footer class="footer">
+    <div class="footer">
         <p>
             Coffee Analytics © 2021
         </p>
-    </footer>
+    </div>
 </body>
 
 
