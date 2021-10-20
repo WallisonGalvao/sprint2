@@ -39,7 +39,7 @@
     </header>
 
     <div class="banner">
-        <form class="formCadastro">
+        <form action="#" class="formCadastro" name="formCadastro">
             
             <div class="dados">
                    <h1>Cadastro de Representantes</h2>
@@ -47,20 +47,31 @@
                     <h3>Dados pessoais</h3> 
 
                    Nome / Razão Social: <input type="text" placeholder="Nome ou Razão Social" required><br> <br>
+
                    CPF / CNPJ: <input type="text" placeholder="CPF ou CNPJ" required> <br><br>
+
                    Email: <input type="email" placeholder="Exemplo: xxxxx@xxxx.com" required> <br><br>
+
                    Senha: <input type="password" id="senha" placeholder="Digite uma senha" required> <br><br>
-                   Confirmar Senha: <input type="password" id="confirmarSenha" placeholder="Confirme a senha" required> <br><br>
+
+                   Confirmar Senha: <input type="password" id="confirmarSenha" onkeyup="aparecer()" placeholder="Confirme a senha" required> <br><br>
+
                    Telefone Celular: <input type="text" placeholder="(DDD) 9xxxx-xxxx " required> <br><br>
+
                    Telefone Fixo: <input type="text" placeholder="(DDD) xxxx-xxxx " required> <br><br>
 
                     <h3>Dados da fazenda</h3> 
                     
                    Nome: <input type="text" placeholder="Nome da Fazenda" required> <br><br>
+
                    Logradouro: <input type="text" placeholder="Logradouro" required> <br><br>
+
                    Número: <input type="text" placeholder="Número" required> <br><br>
+
                    CEP: <input type="text" placeholder="Exemplo: 00000-000" required> <br> <br>
+
                    Cidade: <input type="text" placeholder="Nome da Cidade" required> <br><br>
+
                    Estado: <input type="text" placeholder="Exemplo: SP" required> <br><br>
                    
                    <input type="submit" name="submit" id="submit">
@@ -91,8 +102,8 @@
 
 <script>
     function validar(){
-        var senha = formuser.senha.value
-        var rep_senha = formuser.confirmarSenha.value
+        let senha = formCadastro.senha.value;
+        let rep_senha = formCadastro.confirmarSenha.value;
 
         if(senha == "" || senha.length <= 5){
             alert('Preencha o campo de senha com minimo de 6 caracteres')
@@ -103,5 +114,12 @@
         if(rep_senha == "" || rep_senha.length <= 5){
             alert('Preencha corretamente o campo de confirmação')
         }
+    }
+    function aparecer(){
+       
+        if (senha != rep_senha){
+            alert('Senhas diferentes')
+        }
+       
     }
 </script>

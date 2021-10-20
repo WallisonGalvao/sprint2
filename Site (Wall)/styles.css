@@ -355,12 +355,24 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    color: #66271F;
+    
     
     
     
    
    
     
+}
+
+.banner .formCadastro input{
+    border-radius: 10px;
+    padding: 2px;
+    
+}
+
+.banner .formCadastro h3{
+    color: #000
 }
 
 .banner .formCadastro .dados{
@@ -463,6 +475,9 @@
     align-items: center;
     
 }
+#submit:hover{
+    opacity: 0.8;
+}    
 
 .banner .formLogin button:hover{
     opacity: 0.8;
@@ -501,6 +516,8 @@
     position: absolute;
     
 }
+
+
 
 
 
