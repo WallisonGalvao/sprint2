@@ -39,40 +39,43 @@
     </header>
 
     <div class="banner">
-        <h1>Cadastro de Representantes</h2>
-        <div class="formCadastro">
+        <form class="formCadastro">
+            
+            <div class="dados">
+                   <h1>Cadastro de Representantes</h2>
 
-               <div class="dadosCliente">
-                   Nome / Razão Social: <input type="text" placeholder="Nome ou Razão Social"> <br>
-                   CPF / CNPJ: <input type="text" placeholder="CPF ou CNPJ"> <br>
-                   Email: <input type="email" placeholder="Exemplo: xxxxx@xxxx.com"> <br>
-                   Senha: <input type="password" placeholder="Digite uma senha"> <br>
-                   Confirmar Senha: <input type="password" placeholder="Confirme a senha">  
-                   Telefone Celular: <input type="text" placeholder="(DDD) 9xxxx-xxxx "> 
-                   Telefone Fixo: <input type="text" placeholder="(DDD) xxxx-xxxx "> 
-               </div>
+                    <h3>Dados pessoais</h3> 
 
-               <div class="dadosFazenda">
-                   Nome: <input type="text" placeholder="Nome da Fazenda">
-                   Logradouro: <input type="text" placeholder="Logradouro">
-                   Número: <input type="text" placeholder="Número">
-                   CEP: <input type="text" placeholder="Exemplo: 00000-000"> 
-                   Cidade: <input type="text" placeholder="Nome da Cidade">
-                   Estado: <input type="text" placeholder="Exemplo: SP">
-               </div>
-               <button onclick="validar()">
-                   Cadastrar
-               </button>
-                </div>
-                
-               
+                   Nome / Razão Social: <input type="text" placeholder="Nome ou Razão Social" required><br> <br>
+                   CPF / CNPJ: <input type="text" placeholder="CPF ou CNPJ" required> <br><br>
+                   Email: <input type="email" placeholder="Exemplo: xxxxx@xxxx.com" required> <br><br>
+                   Senha: <input type="password" id="senha" placeholder="Digite uma senha" required> <br><br>
+                   Confirmar Senha: <input type="password" id="confirmarSenha" placeholder="Confirme a senha" required> <br><br>
+                   Telefone Celular: <input type="text" placeholder="(DDD) 9xxxx-xxxx " required> <br><br>
+                   Telefone Fixo: <input type="text" placeholder="(DDD) xxxx-xxxx " required> <br><br>
 
-                
-                
-                
-                
-                
+                    <h3>Dados da fazenda</h3> 
+                    
+                   Nome: <input type="text" placeholder="Nome da Fazenda" required> <br><br>
+                   Logradouro: <input type="text" placeholder="Logradouro" required> <br><br>
+                   Número: <input type="text" placeholder="Número" required> <br><br>
+                   CEP: <input type="text" placeholder="Exemplo: 00000-000" required> <br> <br>
+                   Cidade: <input type="text" placeholder="Nome da Cidade" required> <br><br>
+                   Estado: <input type="text" placeholder="Exemplo: SP" required> <br><br>
+                   
+                   <input type="submit" name="submit" id="submit">
+                   
+                   
+                </div>               
             </div>
+                
+                
+                
+                
+                
+                
+                
+            </form>
 
     </div>
 
