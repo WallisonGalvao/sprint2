@@ -517,6 +517,95 @@
     
 }
 
+.banner .contato {
+    background-color: #e5e5e5;
+    
+    align-items: center;
+    margin-top: 30px;
+    background: #e5e5e5;
+    height: 50%;
+    width: 28%;
+    padding: 40px;
+    
+    border-radius: 20px;
+    
+    
+    
+    
+    
+    font-weight: 500;
+    color:#66271F;
+    
+
+}
+
+.banner .contato .titulo h2{
+    
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.banner .contato .mensagem{
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    margin-top: 5px;
+    
+    
+}
+
+.banner .contato .msg{
+    width: 100%;
+    margin-top: 5px;
+    
+    
+}
+ 
+.banner .contato .botao{
+    justify-content: center;
+    display: flex;
+    border-radius: 5px;
+    color: #66271F;
+    
+    
+}
+
+
+
+.submit{
+    margin-bottom: 45px;
+    cursor: pointer;
+    background-color: #66271F;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    height: 50px;
+    width: 200px; 
+    align-items: center;
+}
+
+
+
+.banner .contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 300px;
+}
+
+.banner .contato .submit:hover{
+    opacity: 0.9;
+}
+
+
+
+
 
 
 
