@@ -80,9 +80,9 @@
 .banner
 {
     margin-top: 100px;
-    height: 100vh;
-    width: 100vw;
     background-image: url(graosBottom.png);
+    height: 100vh;
+    width: 99vw;
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -215,12 +215,13 @@
 
 #calc {
     margin-top: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     background-color:#e5e5e5;
    
     border-radius: 30px;
     height: 55vh;
     width: 30vw;
+
     
    
     display: flex;
@@ -366,7 +367,7 @@
 }
 
 .banner .formCadastro input{
-    border-radius: 10px;
+    
     padding: 2px;
     
 }
@@ -415,7 +416,7 @@
 }
  
 .banner .formLogin{
-
+    margin-bottom: 300px;
     margin-top: 30px;
     background: #e5e5e5;
     height: 50%;
@@ -560,6 +561,7 @@
 .banner .contato .msg{
     width: 100%;
     margin-top: 5px;
+
     
     
 }
