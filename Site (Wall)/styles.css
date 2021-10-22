@@ -85,7 +85,7 @@
     
     align-items: center;
     justify-content: space-evenly;
-    height: 70vh;
+    height: 73vh;
    
     
     width: 100%;
@@ -117,7 +117,7 @@
 {
     margin-bottom: 80px;
     color: #000;
-    font-size: 80px;
+    font-size: 60px;
     font-weight: 400;
   
     
@@ -129,7 +129,7 @@
 
 
 .bloco{
-    margin-top: 50px;
+    margin-top: 80px;
     height: 40vh;
     width: 95%;
     display: flex;
@@ -138,10 +138,11 @@
 }
 
 .bloco:last-child{
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .bloco div{
+    
     width: 50%;
     text-align: center;
     color: #000;
@@ -152,6 +153,7 @@
 }
 
 .bloco div h3{
+    margin-top: 30px;
     color: #66271F;
     margin-bottom: 50px;
   
@@ -165,9 +167,9 @@
 
 .purpose
 {
-    margin-top: 20px;
+    margin-top: 50px;
     height: 450px;
-    /* background-color: #E5E5E5; */
+    background-color: transparent;
     
 }
 
@@ -184,7 +186,8 @@
 {
 
    
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 50px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -193,13 +196,16 @@
 
 .purpose .container
 {
+    
     display: flex;
     flex-direction: column;
     justify-content:  center;
     align-items: center;
+    margin-top: 180px;
 }
 
 .purpose .container .mvv div{
+    
     margin-bottom: 20px;
     width: 20vw;
     display: flex;
@@ -212,6 +218,7 @@
 
 .purpose .container h2
 {
+    
     background-color: #ffff;
     color: #66271F;
     font-weight: bold;
@@ -239,25 +246,23 @@
 
 
 #calc {
-    margin-top: 30px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     background-color:#fff;
     margin-right: 30px;
     border-radius: 30px;
-    height: 40vh;
+    height: 40  vh;
     width: 30vw;
-    
-   
+    color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-}
+    padding: 20px;
+    }
 
 
 .banner #calc div{
-    
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,18 +285,19 @@
   
 }
 
-.banner  h2{
+.banner .titulo {
     
-    margin-top: 30px;
     font-weight: bolder;
-    font-size: 40px;  
+    font-size: 30px;  
     color: #66271F;
 }
 
 .banner #calc div h3{
-   color: #66271F;
-   font-weight: bolder;
+   color: #000;
+   font-size: 15px;
+   font-weight: 500;
    margin-bottom: 10px;
+   
 }
 
 .banner .botoes {
@@ -301,7 +307,7 @@
     align-items: center;
     width: 450px;
     justify-content: space-around;
-    margin-bottom: 20PX;
+    margin-bottom: 20px;
  
     
 }
@@ -350,8 +356,8 @@
 
 
 .banner #div_estimativas  h2{
-    font-weight: bolder;
-    font-size: 40px;
+    font-weight: bold;
+    font-size: 30px;
     color: #66271F;
     padding: 10px;
     align-items: center;
@@ -367,25 +373,48 @@
    
 }
 
-.banner .formCadastro{
+.tituloCadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #66271F;
+    margin-top: 50px;
+}
+
+.bannerCadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+   
+    background-image: url(graosBottom.png);
+    background-size: cover;
     
-    margin-bottom: 100px;
-    padding: 50px 50px;
+
+}
+
+
+
+
+
+.bannerCadastro .formCadastro{
+    
+    /* margin-bottom: 200px; */
+    padding: 50px;
     border-radius: 30px;
    
+    height: 30vh;
     width: 60%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     color: #66271F;
     padding: 2px;
-  
    
-   
-    
 }
 
  .dadosCliente{
+     height: 55vh;
      padding: 20px;
     border-style: solid;
     border-color: black;
@@ -395,6 +424,7 @@
 }
 
 .dadosFazenda{
+    height: 55vh;
     padding: 20px;
    border-style: solid;
    border-color: black;
@@ -403,11 +433,14 @@
    background: #fff;
 }
 
+.botaoCadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.banner  button{
-  
-    
-    
+
+.botaoCadastro button{      
     cursor: pointer;
     background-color: #66271F;
     color: #fff;
@@ -418,22 +451,21 @@
     border-radius: 20px;
     height: 60px;
     width: 150px;
-    margin-bottom:100px;
-    
-    
- }
+}
 
-.banner  button:hover{
+.botaoCadastro  button:hover{
         opacity: 0.8;
 }
+
+
  
 .banner .formLogin{
-
+    margin-top: 30px ;
     margin-bottom: 150px;
     background: #fff;
-    height: 50%;
+    height: 55%;
     width: 15%;
-    padding: 40px;
+    padding: 50px;
     border-style: solid;
     border-color: #000;
     border-width: 1px;
@@ -449,7 +481,6 @@
 
 .banner .formLogin input{
     height: 30px;
-    font-size: 100;
     padding: 10px;
     border-radius: 15px;
 
@@ -490,10 +521,11 @@
 
 .graficosDash{
     height: 100vh;
-    
+    margin-top: 50px;
+    margin-left: 50px;
     display: flex;
     flex-direction: column;
-    margin-left: 200px;
+    
   
     justify-content: space-around;
     
@@ -501,7 +533,9 @@
 
 .graficosDash .graficos{
  
+    
     margin-top: 50px;
+    
 }
 
 .footer
@@ -528,6 +562,7 @@
     
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 200px;
     background: #fff;
     border-style: solid;
     border-color: #000;
@@ -554,7 +589,7 @@
 }
 
 .banner .contato .mensagem{
-    height: 150px;
+    height: 50px;
     width: 100%;
     margin-top: 5px;
     
@@ -578,7 +613,9 @@
     
 }
 
-
+.banner .contato .botao:hover{
+    opacity: 0.8;
+}
 
 .submit{
    
