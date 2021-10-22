@@ -5,54 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Institucional</title>
+    <title>Login</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,700;1,700&display=swap"
+        rel="stylesheet">
     <link href="node-lm-35\node-lm-35\node-lm-35\node-lm-35\dashboard.html">
+    <script src="dashboard.html">
+
+    </script>
+     <link rel="shortcut icon" type="imagex/png" href="https://http2.mlstatic.com/D_NQ_NP_963696-MLB31277777824_062019-O.jpg">
 </head>
 
 <body>
-    
-        <nav>
-            <div class="header">
-                <div class="container">
 
-                    <a href="index.html">
 
-                        <img src="logoxicara.png" alt="logo">
-                    </a>
-                    <ul class="navbar">
-                        <li><a href="index.html">Página Inicial</a></li>
-                        <li> <a href="simulador.html">Simulador</a>
-                        </li>
-                        <li>|</li>
-                        <li class="active"> Login </li>
-                        <li> <a href="cadastro.html">Cadastro</a> </li>
-                        <li> <a href="contato.html">Contato</a> </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    
+    <div class="header">
+        <div class="container">
+
+            <a href="index.html">
+
+                <img src="logoxicara.png" alt="logo">
+            </a>
+            <ul class="navbar">
+                <li><a href="index.html">Página Inicial</a></li>
+                <li> <a href="simulador.html">Simulador</a>
+                </li>
+                <li>|</li>
+                <li class="active"> Login </li>
+                <li> <a href="cadastro.html">Cadastro</a> </li>
+                <li> <a href="contato.html">Contato</a> </li>
+            </ul>
+        </div>
+    </div>
+
+
 
     <div class="banner">
+        <h2>LOGIN</h2>
         <div class="formLogin">
-            <h2>LOGIN</h2>
             <div>
-                <h3>Email</h3> 
+                <h3>Email</h3>
                 <input type="text" id="email" placeholder="Email">
             </div>
 
             <div>
                 <h3>Senha</h3>
-                <input type="password" id="senha" placeholder="Digite sua senha"> <br> 
-                <input id="check"type="checkbox" onclick="mostrarSenha()"> mostrar senha
+                <input type="password" id="senha" placeholder="Digite sua senha"> <br>
+                <input id="check" type="checkbox" onclick="mostrarSenha()"> mostrar senha
             </div>
 
-            <button onclick="dashboard()">
-                Entrar
+            <button>
+                <a href="dashboard.html">Entrar</a>
             </button>
 
             <p>
@@ -64,11 +69,11 @@
     </div>
 
 
-    <footer class="footer">
+    <div class="footer">
         <p>
             Coffee Analytics © 2021
         </p>
-    </footer>
+    </div>
 </body>
 
 </html>
@@ -76,15 +81,15 @@
 <script>
     var senha = document.getElementById("senha");
 
-    function mostrarSenha(){
-        if (senha.type=="password"){
-            senha.type="text";
-        }else{
-            senha.type="password"
+    function mostrarSenha() {
+        if (senha.type == "password") {
+            senha.type = "text";
+        } else {
+            senha.type = "password"
         }
     }
 
-    function dashboard(){
-        if (senha );
+    function dashboard() {
+        if (senha);
     }
 </script>

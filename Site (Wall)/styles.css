@@ -79,17 +79,23 @@
 
 .banner
 {
-    margin-top: 100px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70vh;
+   
+    
+    width: 100%;
     background-image: url(graosBottom.png);
-    height: 100vh;
-    width: 99vw;
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover;
+   
+   
     display: flex;
     
-    justify-content: center;
-    align-items: center;
+    
     justify-content: space-around;
 }
 
@@ -99,7 +105,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #e5e5e5;
     height: 50%;
     width: 40%;
     opacity: 0.9;
@@ -110,27 +115,52 @@
 
  .banner .message p
 {
-    margin-right: auto;
+    margin-bottom: 80px;
     color: #000;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    
-   
-    
+    font-size: 80px;
+    font-weight: 400;
+  
     
 }
 
+.banner .message p span{
+    font-weight: 700;
+}
 
 
-.banner .message a
-{
-    font-weight: bolder;
+.bloco{
+    margin-top: 50px;
+    height: 40vh;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.bloco:last-child{
+    margin-left: 20px;
+}
+
+.bloco div{
+    width: 50%;
+    text-align: center;
+    color: #000;
     font-size: 30px;
-    text-decoration: none;
+    font-weight: 300;
+  
+   
+}
+
+.bloco div h3{
     color: #66271F;
-    justify-content: space-between;
+    margin-bottom: 50px;
+  
+}
+
+.bloco div p a{
+        text-decoration: none;
+        color: #66271F;
+        font-weight: bold;
 }
 
 .purpose
@@ -147,6 +177,8 @@
     width: 100px;
     
 } 
+
+
 
 .purpose .container .mvv
 {
@@ -168,6 +200,7 @@
 }
 
 .purpose .container .mvv div{
+    margin-bottom: 20px;
     width: 20vw;
     display: flex;
     flex-direction: column;
@@ -195,33 +228,24 @@
 
 
 
-.banner{
-
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
-   
-    
-}
 
 .blocoSimulador{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 80%;
 }
+
+
 
 #calc {
     margin-top: 30px;
     margin-bottom: 100px;
-    background-color:#e5e5e5;
-   
+    background-color:#fff;
+    margin-right: 30px;
     border-radius: 30px;
-    height: 55vh;
+    height: 40vh;
     width: 30vw;
-
     
    
     display: flex;
@@ -258,6 +282,7 @@
 
 .banner  h2{
     
+    margin-top: 30px;
     font-weight: bolder;
     font-size: 40px;  
     color: #66271F;
@@ -276,26 +301,22 @@
     align-items: center;
     width: 450px;
     justify-content: space-around;
-    
-
-
-    
+    margin-bottom: 20PX;
+ 
     
 }
 
 .banner .botoes button
 {
-    background: rgb(22, 4, 4);
+    background: #66271F;
     color: #fff;
     
-    margin-bottom: 20px;
+    
     margin-left: 30px;
     width: 100%;
     padding: 10px;
     border-radius: 25px;
     border: none;
-    
-   
     font-size: 15px;
     font-weight: 500;
 }
@@ -307,18 +328,20 @@
 }
 
 .banner  #div_estimativas{
+    margin-top: 30px;
+    margin-bottom: 100px;
+    background-color:#fff;
+    margin-right: 30px;
+    border-radius: 30px;
+    height:40vh;
+    width: 30vw;
+    
+   
     display: flex;
-     text-align: center;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #e5e5e5;
-    height: 30vh;
-    width: 28vw;
-    margin-bottom: 30px;
-    border-radius: 25px;
     justify-content: space-evenly;
-    padding: 20px;
+    
    
 
 }
@@ -335,65 +358,53 @@
 }
 
 .banner  h1{
-    margin-top: 80px;
+    margin-top: 70px;
    margin-bottom: 20px;
    color: #66271F;
    font-weight: bolder;
    margin-bottom: 30px;
    font-size: 40px;
-
    
 }
 
 .banner .formCadastro{
-    margin-top: 21%;
-    margin-bottom: 500px;
+    
+    margin-bottom: 100px;
     padding: 50px 50px;
     border-radius: 30px;
-    background-color: #e5e5e5;
-    height: 90vh;
-    width: 40%;
+   
+    width: 60%;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: space-around;
     color: #66271F;
-    
-    
-    
-    
-   
-   
-    
-}
-
-.banner .formCadastro input{
-    
     padding: 2px;
+  
+   
+   
     
 }
 
-.banner .formCadastro h3{
-    color: #000
+ .dadosCliente{
+     padding: 20px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 15px;
+    background: #fff;
 }
 
-.banner .formCadastro .dados{
-    display: flexbox;
-    flex-direction: column;
-    justify-content: space-between;
+.dadosFazenda{
+    padding: 20px;
+   border-style: solid;
+   border-color: black;
+   border-width: 1px;
+   border-radius: 15px;
+   background: #fff;
 }
 
 
-    
-
-
-
- 
-
-
-
-
-
-.banner .formCadastro button{
+.banner  button{
   
     
     
@@ -405,24 +416,27 @@
     border: none;
     padding: 10px;
     border-radius: 20px;
-    height: 50px;
-    width: 100px;
-   
+    height: 60px;
+    width: 150px;
+    margin-bottom:100px;
+    
     
  }
 
-.banner .formCadastro button:hover{
+.banner  button:hover{
         opacity: 0.8;
 }
  
 .banner .formLogin{
-    margin-bottom: 300px;
-    margin-top: 30px;
-    background: #e5e5e5;
+
+    margin-bottom: 150px;
+    background: #fff;
     height: 50%;
-    width: 28%;
+    width: 15%;
     padding: 40px;
-    
+    border-style: solid;
+    border-color: #000;
+    border-width: 1px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -438,11 +452,9 @@
     font-size: 100;
     padding: 10px;
     border-radius: 15px;
-    
-   
-  
 
 }
+
 
 .banner .formLogin button{
     margin-top: 20px;
@@ -459,29 +471,13 @@
     width: 200px; 
 }
 
-
-#submit{
-    
-    margin-bottom: 45px;
-    cursor: pointer;
-    background-color: #66271F;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bolder;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    height: 50px;
-    width: 200px; 
-    align-items: center;
-    
-}
-#submit:hover{
-    opacity: 0.8;
-}    
-
 .banner .formLogin button:hover{
     opacity: 0.8;
+}
+
+.banner .formLogin button a{
+    text-decoration: none;
+    color: #fff;
 }
 
 
@@ -492,9 +488,26 @@
 
 }
 
+.graficosDash{
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+  
+    justify-content: space-around;
+    
+}
+
+.graficosDash .graficos{
+ 
+    margin-top: 50px;
+}
+
 .footer
 {
     margin-top: 50px;
+    width: 100%;
     background-color: #66271F;
     height: 10vh;
     display: flex;
@@ -510,30 +523,21 @@
     font-size: 12px;
 }
 
-.banner .formCadastro .valido {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    
-}
-
 .banner .contato {
-    background-color: #e5e5e5;
+    background-color: #fff;
     
     align-items: center;
     margin-top: 30px;
-    background: #e5e5e5;
+    background: #fff;
+    border-style: solid;
+    border-color: #000;
+    border-width: 1px;
     height: 50%;
     width: 28%;
     padding: 40px;
     
     border-radius: 20px;
-    
-    
-    
-    
-    
+
     font-weight: 500;
     color:#66271F;
     
@@ -550,9 +554,8 @@
 }
 
 .banner .contato .mensagem{
-    height: 100px;
+    height: 150px;
     width: 100%;
-    align-items: center;
     margin-top: 5px;
     
     
@@ -578,7 +581,7 @@
 
 
 .submit{
-    margin-bottom: 45px;
+   
     cursor: pointer;
     background-color: #66271F;
     color: #fff;
@@ -591,25 +594,4 @@
     width: 200px; 
     align-items: center;
 }
-
-
-
-.banner .contato{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 300px;
-}
-
-.banner .contato .submit:hover{
-    opacity: 0.9;
-}
-
-
-
-
-
-
-
-
 

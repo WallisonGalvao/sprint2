@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="https://http2.mlstatic.com/D_NQ_NP_963696-MLB31277777824_062019-O.jpg">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+
+            <a href="index.html">
+
+                <img src="logoxicara.png" alt="logo">
+            </a>
+
+            <ul class="navbar">
+                <li><a href="index.html">Página Inicial</a></li>
+                <li> <a href="simulador.html">Simulador</a>
+                </li>
+                <li>|</li>
+                <li class="active"> Login</li>
+                <li>  <a href="login.html">Cadastro/a></li>
+                <li> <a href="contato.html">Contato</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="graficosDash">
+        <div class="grafico">
+
+            <div>
+                <h1>Sensor DHT11 - Umidade </h1>
+                <section>
+                    <h2>Média: <label id='average'>0.00</label></h2>
+                </section>
+                <section style="width:50%">
+                    <canvas id="chart"></canvas>
+                    <section>
+            </div>
+        </div>
+
+        <div class="grafico">
+
+            <div>
+                <h1>Sensor DHT11 - Temperatura </h1>
+                <section>
+                    <h2>Média: <label id='average2'>0.00</label></h2>
+                </section>
+                <section style="width:50%">
+                    <canvas id="chart2"></canvas>
+                    <section>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <p>
+            Coffee Analytics © 2021
+        </p>
+    </div>
+
+    <script>
+
+        var context = document.getElementById("chart").getContext("2d");
+        context.canvas.width = 1000;
+        context.canvas.height = 300;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Umidade (%)",
+                    borderColor: '#34baeb',
+                    backgroundColor: '#34baeb20',
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Umidade (%)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+        var context2 = document.getElementById("chart2").getContext("2d");
+        context2.canvas.width = 1000;
+        context2.canvas.height = 300;
+
+        var configuration2 = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label:
+                        'Temperatura (°C)',
+                    borderColor: '#eb4444',
+                    backgroundColor: '#eb444420',
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Temperatura (°C)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        var chart = new Chart(context, configuration);
+        var chart2 = new Chart(context2, configuration2);
+        this.lastIndexTemp = 0;
+        this.time = 0;
+
+        function get_data() {
+
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/api', false);
+            http.send(null);
+
+            var obj = JSON.parse(http.responseText);
+
+            if (obj.data.length == 0) {
+                return;
+            }
+
+            var _lastIndexTemp = this.lastIndexTemp;
+            this.lastIndexTemp = obj.data.length;
+
+            listTemp = obj.data2.slice(_lastIndexTemp);
+            listUmi = obj.data.slice(_lastIndexTemp);
+
+            this.lastIndexTemp2 = obj.data2.length;
+
+            listUmi.forEach(data => {
+                if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                }
+
+                chart.data.labels.push(this.time++);
+                chart.data.datasets[0].data.push(parseFloat(data));
+                chart.update();
+
+                
+                if (data >= 40  && data <= 50) {
+                    chart.data.datasets[0].backgroundColor = '#008000';
+                    chart.data.datasets[0].borderColor = '#008000';
+                    chart.data.datasets[0].label = ' Umidade  ideal';
+                }
+                else if (data > 50 && data < 60) {
+                    chart.data.datasets[0].backgroundColor = '#ffd920';
+                    chart.data.datasets[0].borderColor = '#ffd920';
+                    chart.data.datasets[0].label = 'ATENÇÃO: Umidade acima do ideal';
+                } else if (data > 60 && data < 70) {
+                    chart.data.datasets[0].backgroundColor = '#ff9900';
+                    chart.data.datasets[0].borderColor = '#ff9900';
+                    chart.data.datasets[0].label = 'EMERGÊNCIA: Umidade muito acima do ideal';
+                }
+                else if (data > 70) {
+                    chart.data.datasets[0].backgroundColor = '#ff0000';
+                    chart.data.datasets[0].borderColor = '#ff0000';
+                    chart.data.datasets[0].label = 'CRÍTICO: Umidade extremamente alta';
+                }
+
+
+                if (data < 40 && data >= 30) {
+                    chart.data.datasets[0].backgroundColor = '#B0E0E6'
+                    chart.data.datasets[0].borderColor = '#B0E0E6'
+                    chart.data.datasets[0].label = 'ATENÇÃO: Umidade abaixo do ideal'
+                } else if (data < 30 && data >= 25) {
+                    chart.data.datasets[0].backgroundColor = '#FFDAB9'
+                    chart.data.datasets[0].borderColor = '#FFDAB9'
+                    chart.data.datasets[0].label = 'EMERGÊNCIA: Umidade muito abaixo do ideal'
+                }
+                else if (data < 25) {
+                    chart.data.datasets[0].backgroundColor = '#D8BFD8'
+                    chart.data.datasets[0].borderColor = '#D8BFD8'
+                    chart.data.datasets[0].label = 'CRÍTICO: Umidade extremamente baixa'
+                }
+            });
+
+
+
+            listTemp.forEach(data => {
+                if (chart2.data.labels.length == 10 && chart2.data.datasets[0].data.length == 10) {
+                    chart2.data.labels.shift();
+                    chart2.data.datasets[0].data.shift();
+                }
+
+                chart2.data.labels.push(this.time);
+                chart2.data.datasets[0].data.push(parseFloat(data));
+                chart2.update();
+
+                if ((data >= 19) && (data <= 24)) {
+                    chart2.data.datasets[0].backgroundColor = '#006400'
+                    chart2.data.datasets[0].borderColor = '#006400'
+                    chart2.data.datasets[0].label = 'Temperatura ideal'
+                }
+                else if ((data > 22) && (data <= 24)) {
+                    chart2.data.datasets[0].backgroundColor = '#FFD720'
+                    chart2.data.datasets[0].borderColor = '#FFD720'
+                    chart2.data.datasets[0].label = 'ATENÇÃO: Temperatura acima do ideal'
+                } else if ((data > 25) && (data < 28)) {
+                    chart2.data.datasets[0].backgroundColor = '#ff9900'
+                    chart2.data.datasets[0].borderColor = '#ff9900'
+                    chart2.data.datasets[0].label = 'EMERGÊNCIA: Temperatura muito acima do ideal'
+                }
+                else if (data > 28) {
+                    chart2.data.datasets[0].backgroundColor = '#ff0000'
+                    chart2.data.datasets[0].borderColor = '#ff0000'
+                    chart2.data.datasets[0].label = 'CRÍTICO: Temperatura altíssima'
+                }
+
+
+                if ((data < 19) && (data >= 17)) {
+                    chart2.data.datasets[0].backgroundColor = '#FA8072'
+                    chart2.data.datasets[0].borderColor = '#FA8072'
+                    chart2.data.datasets[0].label = 'ATENÇÃO: Temperatura abaixo do ideal'
+                } else if ((data < 16) && (data > 14)) {
+                    chart2.data.datasets[0].backgroundColor = '#A52A2A'
+                    chart2.data.datasets[0].borderColor = '#A52A2A'
+                    chart2.data.datasets[0].label = 'EMERGÊNCIA: Temperatura muito abaixo do ideal'
+                }
+                else if (data < 15) {
+                    chart2.data.datasets[0].backgroundColor = '#00CED1'
+                    chart2.data.datasets[0].borderColor = '#0000'
+                    chart2.data.datasets[0].label = 'CRÍTICO: Temperatura extremamente baixa'
+                }
+            });
+
+            document.getElementById('average').textContent = obj.average;
+            document.getElementById('average2').textContent = obj.average2;
+
+        }
+
+        setInterval(() => {
+            get_data();
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

@@ -5,96 +5,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Institucional</title>
+    <title>Simulador</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,700;1,700&display=swap"
         rel="stylesheet">
+        <link rel="shortcut icon" type="imagex/png" href="https://http2.mlstatic.com/D_NQ_NP_963696-MLB31277777824_062019-O.jpg">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="header">
-                <div class="container">
 
-                    <a href="index.html">
+    <div class="header">
+        <div class="container">
 
-                        <img src="logoxicara.png" alt="logo">
-                    </a>
+            <a href="index.html">
 
-                    <ul class="navbar">
-                        <li> <a href="index.html">Página Inicial</a></li>
-                        <li class="active"> Simulador</a>
-                        </li>
-                        <li>|</li>
-                        <li> <a href="login.html">Login</a> </li>
-                        <li> <a href="cadastro.html">Cadastro</a> </li>
-                        <li> <a href="contato.html">Contato</a> </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+                <img src="logoxicara.png" alt="logo">
+            </a>
 
-  
-        <div class="banner">
-            <!-- <div class="blocoSimulador"> -->
-                <h2>SIMULE AQUI</h2>
-                <div id="calc">
-                    <!--Título no topo -->
-    
-                    <div>
-                        <!-- Entrada de informação para tamanho do terreno -->
-                        <h3>Tamanho da área de cultivo em hectare:</h3>
-                        <input id="tam_terreno" type="text" placeholder="Ex: 100">
-                    </div>
-    
-                    <div>
-                        <!-- Entrada de informação para quantidade de sacas por hectare-->
-                        <h3>Rendimento de sacas por hectare:</h3>
-                        <input id="qtd_por_hectar" type="text" placeholder="Ex: 25">
-                    </div>
-    
-                    <div>
-                        <!-- Entrada de informação para valor unitario da saca-->
-                        <h3>Valor da saca:</h3>
-                        <input id="valor_por_saca" type="text" placeholder="R$0.00">
-                    </div>
-    
-                    
-                    
-                </div>
-                <!-- identificação do html através de uma div-->
-                <div class="botoes">
-                    <!-- Botão para simular os valores-->
-                <button onclick="simulador_valores()">Simular valores</button> 
-
-                <button onclick="limpar_calculadora()">Limpar calculadora</button>
-                </div>
-                
-    
-                <div id="div_estimativas" style="display: none;">
-                    
-                        <h2>ESTIMATIVAS</h2>
-                        <p>
-                            O lucro total sem perda de 20% é de: R$ <b id="lucroSemPerda"> </b>
-                        </p> <br>
-                        <p>
-                            O lucro com a estimativa de 20% de perda é de: R$ <b id="lucroComPerda"> </b>
-                        </p> <br>
-    
-                        <p>
-                            Com nossa solução, a estimativa de lucro é de até 40% sobre a perda, num valor de: R$ <b
-                                id="lucroSolucao"> </b>
-                        </p> <br>
-                    
-    
-                </div>
-            <!-- </div> -->
-           
+            <ul class="navbar">
+                <li> <a href="index.html">Página Inicial</a></li>
+                <li class="active"> Simulador</a>
+                </li>
+                <li>|</li>
+                <li> <a href="login.html">Login</a> </li>
+                <li> <a href="cadastro.html">Cadastro</a> </li>
+                <li> <a href="contato.html">Contato</a> </li>
+            </ul>
         </div>
+    </div>
+
+
+
+    <div class="banner">
+        <h2>SIMULE AQUI</h2>
+        <div class="blocoSimulador">
+        <div id="calc">
+            <!--Título no topo -->
+
+            <div>
+                <!-- Entrada de informação para tamanho do terreno -->
+                <h3>Tamanho da área de cultivo em hectare:</h3>
+                <input id="tam_terreno" type="text" placeholder="Ex: 100">
+            </div>
+
+            <div>
+                <!-- Entrada de informação para quantidade de sacas por hectare-->
+                <h3>Rendimento de sacas por hectare:</h3>
+                <input id="qtd_por_hectar" type="text" placeholder="Ex: 25">
+            </div>
+
+            <div>
+                <!-- Entrada de informação para valor unitario da saca-->
+                <h3>Valor da saca:</h3>
+                <input id="valor_por_saca" type="text" placeholder="R$0.00">
+            </div>
+
+
+
+        </div>
+        <!-- identificação do html através de uma div-->
+        
+        
+        <div id="div_estimativas" style="display: none;">
+            
+            <h2>ESTIMATIVAS</h2>
+            <p>
+                O lucro total sem perda de 20% seria de: R$ <b id="lucroSemPerda"> </b>
+            </p> <br>
+            <p>
+                O lucro com 20% de perda é de: R$ <b id="lucroComPerda"> </b>
+            </p> <br>
+            
+            <p>
+                Com nossa solução, a estimativa de lucro é de até 40% sobre a perda, num valor de: R$ <b
+                id="lucroSolucao"> </b>
+            </p> <br>
+            
+            
+        </div>
+    </div>
+    
+    <div class="botoes">
+        <!-- Botão para simular os valores-->
+        <button onclick="simulador_valores()">Simular valores</button>
+    
+        <button onclick="limpar_calculadora()">Limpar simulador</button>
+    </div>
+</div>
 
 
 
@@ -122,6 +121,7 @@
 
     function simulador_valores() {
         div_estimativas.style.display = 'block';
+      
         // variável para definir a quantidade de sacas de acordo com tamanho do terreno e a quantidade de sacas por hectare 
         var qtd_sacas = tam_terreno.value * qtd_por_hectar.value;
 
@@ -152,6 +152,7 @@
     // Limpar os dados da tela
     function limpar_calculadora() {
         div_estimativas.style.display = 'none';
+       
         // Limpar os inputs
         tam_terreno.value = '';
         qtd_por_hectar.value = '';

@@ -5,90 +5,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Institucional</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,700;1,700&display=swap"
         rel="stylesheet">
+        <link rel="shortcut icon" type="imagex/png" href="https://http2.mlstatic.com/D_NQ_NP_963696-MLB31277777824_062019-O.jpg">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="header">
-                <div class="container">
 
-                    <a href="index.html">
+    <div class="header">
+        <div class="container">
 
-                        <img src="logoxicara.png" alt="logo">
-                    </a>
+            <a href="index.html">
 
-                    <ul class="navbar">
-                        <li><a href="index.html">Página Inicial</a></li>
-                        <li> <a href="simulador.html">Simulador</a>
-                        </li>
-                        <li>|</li>
-                        <li> <a href="login.html">Login</a> </li>
-                        <li class="active"> Cadastro</li>
-                        <li> <a href="contato.html">Contato</a> </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+                <img src="logoxicara.png" alt="logo">
+            </a>
+
+            <ul class="navbar">
+                <li><a href="index.html">Página Inicial</a></li>
+                <li> <a href="simulador.html">Simulador</a>
+                </li>
+                <li>|</li>
+                <li> <a href="login.html">Login</a> </li>
+                <li class="active"> Cadastro</li>
+                <li> <a href="contato.html">Contato</a> </li>
+            </ul>
+        </div>
+    </div>
+
 
     <div class="banner">
-        <form action="#" class="formCadastro" name="formCadastro">
-            
-            <div class="dados">
-                   <h2>Cadastro de Representantes</h2>
+        <h1>CADASTRE-SE</h2>
+            <div class="formCadastro">
 
-                    <h3>Dados pessoais</h3> 
+                <div class="dadosCliente">
+                    <h3>Dados</h3>
+                    Nome / Razão Social: <input type="text" placeholder="Nome ou Razão Social"> <br> <br>
+                    CPF / CNPJ: <input type="text" placeholder="CPF ou CNPJ"> <br> <br>
+                    Email: <input type="email" placeholder="Exemplo: xxxxx@xxxx.com"> <br> <br>
+                    Senha: <input type="password" placeholder="Digite uma senha"> <br> <br>
+                    Confirmar Senha: <input type="password" placeholder="Confirme a senha"> <br> <br>
+                    <label for="phone">Enter your phone number:</label> <input id="phone" name="phone" type="tel" placeholder="(DDD) 9xxxx-xxxx " pattern="[0-9]{3}-[0-9]{5}-[0-9]{4}"> <br> <br>
+                    Telefone Fixo: <input type="tel" placeholder="(DDD) xxxx-xxxx "> <br> <br>
+                </div>
 
-                   Nome / Razão Social: <input type="text" placeholder="Nome ou Razão Social" required><br> <br>
-
-                   CPF / CNPJ: <input type="text" placeholder="CPF ou CNPJ" required> <br><br>
-
-                   Email: <input type="email" placeholder="Exemplo: xxxxx@xxxx.com" required> <br><br>
-
-                   Senha: <input type="password" id="senha" placeholder="Digite uma senha" required> <br><br>
-
-                   Confirmar Senha: <input type="password" id="confirmarSenha" onkeyup="aparecer()" placeholder="Confirme a senha" required> <br><br>
-
-                   Telefone Celular: <input type="text" placeholder="(DDD) 9xxxx-xxxx " required> <br><br>
-
-                   Telefone Fixo: <input type="text" placeholder="(DDD) xxxx-xxxx " required> <br><br>
-
-                    <h3>Dados da fazenda</h3> 
-                    
-                   Nome: <input type="text" placeholder="Nome da Fazenda" required> <br><br>
-
-                   Logradouro: <input type="text" placeholder="Logradouro" required> <br><br>
-
-                   Número: <input type="text" placeholder="Número" required> <br><br>
-
-                   CEP: <input type="text" placeholder="Exemplo: 00000-000" required> <br> <br>
-
-                   Cidade: <input type="text" placeholder="Nome da Cidade" required> <br><br>
-
-                   Estado: <input type="text" placeholder="Exemplo: SP" required> <br><br>
-                   
-                   <input type="submit" name="submit" id="submit">
-                   
-                   
-                </div>               
+                <div class="dadosFazenda">
+                    <h3>Dados Fazenda</h3>
+                    Nome: <input type="text" placeholder="Nome da Fazenda"> <br> <br>
+                    Logradouro: <input type="text" placeholder="Logradouro"> <br> <br>
+                    Número: <input type="text" placeholder="Número"> <br> <br>
+                    CEP: <input type="text" placeholder="Exemplo: 00000-000"> <br> <br>
+                    Cidade: <input type="text" placeholder="Nome da Cidade"> <br> <br>
+                    Estado: <input type="text" placeholder="Exemplo: SP"> <br> <br>
+                </div>
             </div>
-                
-                
-                
-                
-                
-                
-                
-            </form>
-
+            <button onclick="validar()">
+                Cadastrar
+            </button>
     </div>
+
+
+
+
+
+
+
+
 
 
     <footer class="footer">
@@ -101,25 +86,18 @@
 </html>
 
 <script>
-    function validar(){
-        let senha = formCadastro.senha.value;
-        let rep_senha = formCadastro.confirmarSenha.value;
+    var senha = senha.value;
+    var rep_senha = confirmarSenha.value;
+    function validar() {
 
-        if(senha == "" || senha.length <= 5){
+        if (senha == "" || senha.length <= 5) {
             alert('Preencha o campo de senha com minimo de 6 caracteres')
         }
-        if (senha != rep_senha){
+        if (senha != rep_senha) {
             alert('Senhas diferentes')
         }
-        if(rep_senha == "" || rep_senha.length <= 5){
+        if (rep_senha == "" || rep_senha.length <= 5) {
             alert('Preencha corretamente o campo de confirmação')
         }
-    }
-    function aparecer(){
-       
-        if (senha != rep_senha){
-            alert('Senhas diferentes')
-        }
-       
     }
 </script>
