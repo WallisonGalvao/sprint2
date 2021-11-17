@@ -44,7 +44,7 @@
         
         <div class="dadosCliente">
             <form class="form_cadastro" method="post" action="#" >
-                    <h3>Dados</h3>
+                        <h3>Dados</h3>
                     Nome / Razão Social: <input name="nome" id="nomeRazao" type="text" placeholder="Nome ou Razão Social"> <br> <br>
                     CPF / CNPJ: <input name="cpf" id="cpfCnpj" type="text" placeholder="CPF ou CNPJ"> <br> <br>
                     Email: <input name="email" id="email" type="email" placeholder="Exemplo: xxxxx@xxxx.com"> <br> <br>
@@ -81,14 +81,6 @@
             
         </div>
 
-
-
-
-
-
-
-
-
     <footer class="footer">
         <p>
             Coffee Analytics © 2021
@@ -97,77 +89,85 @@
 </body>
 
 </html>
-
 <script>
-    
 
-           // if (senha.value == "" || senha.value.length <= 5) {
-    //         alert('Preencha o campo de senha com minimo de 6 caracteres')
-    
-    
-    //     if (senha.value != senhaConfirm.value) {
-    //         alert('Senhas diferentes')
-    //     }
-    //     if (senhaConfirm.value == "" || senhaConfirm.length <= 5) {
-    //         alert('Preencha corretamente o campo de confirmação')
-    //     }
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
 
-function validar() {
+    function cadastrar() {
+        aguardar();
 
-// if (nomeRazao.value == "wall") {
-//    if (cpfCnpj.value == '123.456.789-10') {
-//        if (email.value == 'wall@gmail.com') {
-//            if (senha.value == '123123') {
-//                if (senhaConfirm.value == senha.value) {
-//                    if (telefoneCelular.value == '(47) 91234-5678') {
-//                        if (telefoneFixo.value == '(47) 1234-5678') {
-//                            if (nomeFazenda.value == 'wallFarm') {
-//                                if (logradouro.value == 'Rua Maria Catanduva') {
-//                                    if (numero.value == '377') {
-//                                        if (cep.value == '01234-567') {
-//                                            if (cidade.value == 'Agronomica') {
-//                                               if (estado.value == 'Santa Catarina') {
-//                                                    
-//                                                    window.location.href = "login.html"
-//                                                } else {
-//                                                    alert("Por favor inserir o estado");
-//                                                }
-//                                            } else {
-//                                               alert("Por favor inserir a cidade");
-//                                            }
-//                                        } else {
-//                                            alert("Por favor inserir o cep");
-//                                        }
-//                                    } else {
-//                                        alert("Por favor inserir o numero do logradouro");
-//                                    }
-//                                } else {
-//                                    alert("Por favor inserir o logradouro");
-//                                }
-//                            } else {
-//                                alert("Por favor inserir o nome da fazenda");
- //                           }
-   //                     } else {
-     //                       alert("Por favor inserir o telefone fixo");
-       //                 }
-      //              } else {
-      //                  alert("Por favor insira o telefone celular");
-      //              }
-      //          } else {
-       //             alert("Por favor confirme a senha corretamente");
-         //       }
-        //    } else {
-         //       alert("Por favor insira a senha");
-       //     }
-      //  } else {
-      //      alert("Por favor insira o e-mail");
-      //  }
-   // } else {
-    //    alert("Por favor insira o CPF/CNPJ");
-    //}
-//} else {
-  //  alert("Por favor insira seu nome");
-//}
-}
-    
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome = dadosCliente.get("nome");
+        var cpf = dadosCliente.get("cpf");
+        var email = dadosCliente.get("email");
+        var senha = dadosCliente.get("senha");
+        var confirmacaoSenha = dadosCliente.get("confSenha");
+        var tel = dadosCliente.get("tel");
+        var fixo = dadosCliente.get("fixo");
+        var fazenda = dadosCliente.get("fazenda");
+        var logradouro = dadosCliente.get("logradouro");
+        var numero = dadosCliente.get("numero");
+        var cep = dadosCliente.get("cep");
+        var cidade = dadosCliente.get("cidade");
+        var estado = dadosCliente.get("estado")
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || cpf == "" || email == "" || senha == "" ||
+            confirmacaoSenha == "" || tel == "" || fixo == "" || fazenda == "" || logradouro == "" || numero == "" || cep == "" || cidade == "" || estado == "") {
+            
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome == "")  {
+                console.log('nome está em branco')
+            }
+            if (email == "" )  {
+                console.log('email está em branco')
+            }
+            if (senha == "" )  {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenha == "" )  {
+                console.log('confirmacaoSenha está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+        
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+        
+        if (senha != confirmacaoSenha) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
 </script>

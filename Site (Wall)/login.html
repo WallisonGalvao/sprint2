@@ -45,6 +45,7 @@
     <div class="banner">
         <h2 class="titulo">LOGIN</h2>
         <div class="formLogin">
+            <form id="form_cadastro" method="post" action="#">
             <div>
                 <h3>Email</h3>
                 <input type="text" id="email" placeholder="Email">
@@ -57,10 +58,10 @@
             </div>
 
 
-            <button onclick="dashboard()">
+            <button onclick="dashboard()" type="submit">
                Entrar
             </button>
-            
+        </form>
             <p>
 
                 Não tem registro? <a href="cadastro.html">Cadastre-se!</a>
@@ -83,22 +84,22 @@
     
 
     function mostrarSenha() {
-        if (senha.type == "password") {
-            senha.type = "text";
-        } else {
-            senha.type = "password"
+    if (senha.type == "password") {
+        senha.type = "text";
+    } else {
+        senha.type = "password"
         }
-    }
+        }
 
-    function dashboard() {
-        if (email.value == 'wall@gmail.com') {
-            if (senha.value == '123123') {
-                window.location.href = "dashboard.html"
-            } else {
-                alert("Email ou senha inválidos!")
-            }
-        } else {
-            alert("Email ou senha inválidos!")
-        }
-    }
+   // function dashboard() {
+     //   if (email.value == 'wall@gmail.com') {
+       //     if (senha.value == '123123') {
+         //       window.location.href = "dashboard.html"
+           // } else {
+             //   alert("Email ou senha inválidos!")
+          //  }
+       // } else {
+        //    alert("Email ou senha inválidos!")
+       // }
+    //}
 </script>

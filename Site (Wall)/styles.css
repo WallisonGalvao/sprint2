@@ -386,6 +386,7 @@
     align-items: center;
     justify-content: center;
     height: 80vh;
+
    
     background-image: url(graosBottom.png);
     background-size: cover;
@@ -397,11 +398,13 @@
 
 
 
-.bannerCadastro .formCadastro{
+.bannerCadastro .formCadastro {
     
     /* margin-bottom: 200px; */
-    padding: 50px;
+    padding: 100px;
+    padding-right: 50px;
     border-radius: 30px;
+    margin: 50px;
    
     height: 30vh;
     width: 60%;
@@ -410,9 +413,11 @@
     justify-content: space-evenly;
     align-items: center;
     color: #66271F;
-    padding: 2px;
-   
+    
 }
+
+
+
 
  .dadosCliente{
      height: 55vh;
