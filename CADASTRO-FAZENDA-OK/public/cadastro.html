@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,700;1,700&display=swap"
+        rel="stylesheet">
+        <link rel="shortcut icon" type="imagex/png" href="https://http2.mlstatic.com/D_NQ_NP_963696-MLB31277777824_062019-O.jpg">
+
+        <script src="./assets/js/funcoes.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+
+            <a href="index.html">
+
+                <img src="logoxicara.png" alt="logo">
+            </a>
+
+            <ul class="navbar">
+                <li><a href="index.html">Página Inicial</a></li>
+                <li> <a href="simulador.html">Simulador</a>
+                </li>
+                <li>|</li>
+                <li > <a href="login.html">Login</a> </li>
+                <li class="active" > <a href="cadastro.html">Cadastro</a> </li>
+                <li><a href="fazenda.html">Fazenda</a></li>
+                <li> <a href="contato.html">Contato</a> </li>
+            </ul>
+        </div>
+    </div>
+
+  
+    <div class="tituloCadastro">
+        
+        </div>
+
+        <div class="banner" >
+            
+        <div class="formLogin ">
+            
+            <h2>Bem-vindo!</h2>
+                    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                        
+                        Nome:
+                        <input name="nome" type="text" placeholder="nome">
+                        <br>
+                        CPF:
+                        <input name="cpf" type="text" placeholder="email@gmail.com">
+                        <br>
+                        Telefone Celular:
+                        <input name="celular" type="text" placeholder="000000">
+                        <br>
+                        Telefone Fixo:
+                        <input name="fixo" type="text" placeholder="0000000">
+                        <br>
+                        Email:
+                        <input name="email" type="text" placeholder="usuario@gmail.com">
+                        <br>
+                        Senha:
+                        <input name="senha" type="password" placeholder="******">
+                        <br>
+                        Confirmação da Senha:
+                        <input name="confirmacao-senha" type="password" placeholder="******">
+                        <br>
+                        <button class="botao">Cadastrar</button>
+                    </form>
+                
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+                    
+                </div>
+           
+        </div>
+    </div>
+</div>
+    <div class="footer">
+        <p>Direitos Reservados - Coffee Analytics &copy; 2021  </p>
+    </div>
+    
+    
+
+</body>
+
+</html>
+
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
+
+    function cadastrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome = formulario.get("nome");
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+        var confirmacaoSenha = formulario.get("confirmacao-senha");
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+            
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome == "")  {
+                console.log('nome está em branco')
+            }
+            if (email == "" )  {
+                console.log('email está em branco')
+            }
+            if (senha == "" )  {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenha == "" )  {
+                console.log('confirmacaoSenha está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+        
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+        
+        if (senha != confirmacaoSenha) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "fazenda.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>
