@@ -2,6 +2,8 @@ const sensors = require('./sensors')
 const SerialPort = require("serialport");
 const Readline = SerialPort.parsers.Readline;
 
+// abre a pota usb para captura de dados
+
 class ArduinoRead {
 
     constructor() {
@@ -64,7 +66,7 @@ class ArduinoRead {
                 });
                 parser.on('data', (data) => {
                     console.log(data)
-                    let temp = data.replace(/\r/g,'').split(';');
+                    let temp = data.replace(/\r/g,'').split(';')
                     if (temp.length === this.listData.length){
                         temp.map((item, index)=>{
                             console.log('Leitura - ' + this.listData[index].name + ': ' + item);

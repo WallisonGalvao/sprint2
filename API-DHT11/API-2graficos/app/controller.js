@@ -7,6 +7,7 @@ const router = express.Router();
 router.get('/', (request, response, next) => {
     
     ArduinoDataTemp.List.map((item)=>{
+        // reduce = uma funçao para reduzir os conjuntos de dados (faz a soma e manda a media)
         let sum = item.data.reduce((a, b) => a + b, 0);
         let average = (sum / item.data.length).toFixed(2);
         item.total = item.data.length;
@@ -28,6 +29,8 @@ router.get('/', (request, response, next) => {
 
 });
 
+// faz a coleta dos dados com o reduce e manda
+
 router.post('/sendData', (request, response) => {
 
     var umidade  =  ArduinoDataTemp.List[0].data;
@@ -39,54 +42,16 @@ router.post('/sendData', (request, response) => {
     temperatura_dht11 = temperatura_dht11[temperatura_dht11.length-1];
     luminosidade = luminosidade[luminosidade.length-1];
     temperatura_lm35 = temperatura_lm35[temperatura_lm35.length-1];
+    var sql = `INSERT INTO medidas (idMedidas,umidade, temperatura_lm35) VALUES (null, ${umidade}, ${temperatura_lm35})`;
 
-    var sql = `INSERT INTO medidas (idmedidas, umidade, temperatura_dht11) VALUES (NULL, ${umidade}, ${temperatura_dht11})`;
-
-    db.query(sql, [umidade, temperatura_dht11] , function(err, result) {
+    db.query(sql,  function(err, result) {
         if (err) throw err;
+        // console log mostra os registros inceridos
         console.log("Number of records inserted: " + result.affectedRows);
       });
       
     
     response.sendStatus(200);
 })
-router.get('/consultaUmidade', (request, response)=>{
-    var sql = `SELECT umidade FROM medidas`; 
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        console.log("Number of records inserted: " );
-        response.status(200).json(result);
-      });
-})
 
-router.get('/consultaTemperaturaDHT11', (request, response)=>{
-    var sql = `SELECT temperatura_dht11 FROM medidas`; 
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        console.log("Number of records inserted: " );
-        response.status(200).json(result);
-      });
-})
-
-router.get('/consultaLuminosidade', (request, response)=>{
-    var sql = `SELECT luminosidade FROM medidas`; 
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        console.log("Number of records inserted: " );
-        response.status(200).json(result);
-      });
-})
-
-router.get('/consultaTemperaturaLM35', (request, response)=>{
-    var sql = `SELECT temperatura_lm35 FROM medidas`; 
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        console.log("Number of records inserted: " );
-        response.status(200).json(result);
-      });
-})
-
-router.get('/', (request, response)=>{
-    res.render("index", { title: "Express" });
-})
 module.exports = router;
