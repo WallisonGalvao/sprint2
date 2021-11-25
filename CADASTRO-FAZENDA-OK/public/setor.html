@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro de Setor</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,27 +52,13 @@
             
         <div class="formLogin ">
             
-            <h2>Dados da Fazenda</h2> <br>
-                    <form id="form_cadastro" method="post" onsubmit="return fazenda()">
+            <h2>Dados do Setor</h2> <br>
+                    <form id="form_cadastro" method="post" onsubmit="return setor()">
                         
                         Nome:
                         <input name="nome" type="text" placeholder="nome">
                         <br>
-                        CEP:
-                        <input name="cep" type="text" placeholder="nome">
-                        <br>
-                         Logradouro:
-                        <input name="logradouro" type="text" placeholder="nome">
-                        <br>
-                        Número:
-                        <input name="numero" type="text" placeholder="email@gmail.com">
-                        <br>
-                        Cidade:
-                        <input name="cidade" type="text" placeholder="email@gmail.com">
-                        <br>
-                        Estado:
-                        <input name="estado" type="text" placeholder="email@gmail.com">
-                        <br>
+                        
                         
                         <button class="botao">Cadastrar</button>
                     </form>
@@ -89,7 +75,7 @@
     </div>
 </div>
     <div class="footer">
-        <p>Direitos Reservados - Garagem Rock - © 2021  </p>
+        <p>Coffee Analytics © 2021  </p>
     </div>
     
     
@@ -106,18 +92,14 @@ function limparFormulario() {
     document.getElementById("form_cadastro").reset();
 }
 
-function fazenda() {
+function setor() {
     
     aguardar();
 
     var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
 
     var nome = formulario.get("nome");
-    var cep =  formulario.get("cep");
-    var logradouro = formulario.get("logradouro");
-    var numero = formulario.get("numero");
-    var cidade = formulario.get("cidade")
-    var estado = formulario.get("estado");
+    
     
   
     /*    if (nome == "")  {
@@ -148,7 +130,7 @@ function fazenda() {
         return false;
     }*/
 
-    fetch("/fazenda/fazenda", {
+    fetch("/setor/setor", {
         method: "POST",
         body: formulario
     }).then(function (resposta) {
@@ -156,12 +138,12 @@ function fazenda() {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Fazenda cadastrada com sucesso!");
-            window.location = "setor.html";
+            window.alert("Setor cadastrada com sucesso!");
+            window.location = "login.html";
             limparFormulario();
             finalizarAguardar();
         } else {
-            throw("Houve um erro ao tentar realizar o cadastro da fazenda!");
+            throw("Houve um erro ao tentar realizar o cadastro do setor!");
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
