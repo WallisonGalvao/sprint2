@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,700;1,700&display=swap"
         rel="stylesheet">
-        <link rel="shortcut icon" type="imagex/png" href="https://http2.mlstatic.com/D_NQ_NP_963696-MLB31277777824_062019-O.jpg">
+    <link rel="shortcut icon" type="imagex/png"
+        href="https://http2.mlstatic.com/D_NQ_NP_963696-MLB31277777824_062019-O.jpg">
 
-        <script src="./assets/js/funcoes.js"></script>
+    <script src="./assets/js/funcoes.js"></script>
 </head>
 
 <body>
@@ -31,26 +32,26 @@
                 <li> <a href="simulador.html">Simulador</a>
                 </li>
                 <li>|</li>
-                <li > <a href="login.html">Login</a> </li>
-                <li class="active" > <a href="cadastro.html">Cadastro</a> </li>
-                <li><a href="fazenda.html">Fazenda</a></li>
+                <li> <a href="login.html">Login</a> </li>
+                <li class="active"> <a href="cadastro.html">Cadastro</a> </li>
                 <li> <a href="contato.html">Contato</a> </li>
             </ul>
         </div>
     </div>
 
-  
-    <div class="tituloCadastro">
-        
-        </div>
 
-        <div class="banner" >
-            
+    <div class="tituloCadastro">
+
+    </div>
+
+    <div class="banner">
+
         <div class="formLogin ">
-            
+
             <h2>Bem-vindo!</h2>
-                    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                        
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <div class="total">
+                    <div class="esquerda">
                         Nome:
                         <input name="nome" type="text" placeholder="nome">
                         <br>
@@ -66,31 +67,52 @@
                         Email:
                         <input name="email" type="text" placeholder="usuario@gmail.com">
                         <br>
+                    </div>
+                    <div class="meio">
                         Senha:
                         <input name="senha" type="password" placeholder="******">
                         <br>
                         Confirmação da Senha:
                         <input name="confirmacao-senha" type="password" placeholder="******">
                         <br>
-                        <button class="botao">Cadastrar</button>
-                    </form>
-                
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                        Nome: <br>
+                        <input name="nome" type="text" placeholder="nome">
+                        <br>
+                        CEP: <br>
+                        <input name="cep" type="text" placeholder="nome">
+                    </div>
+                    <div class="direita">
+                        <br>
+                        Logradouro: <br>
+                        <input name="logradouro" type="text" placeholder="nome">
+                        <br>
+                        Número: <br>
+                        <input name="numero" type="text" placeholder="email@gmail.com">
+                        <br>
+                        Cidade: <br>
+                        <input name="cidade" type="text" placeholder="email@gmail.com">
+                        <br>
+                        Estado: <br>
+                        <input name="estado" type="text" placeholder="email@gmail.com">
+                        <br>
+                    </div>
                 </div>
+                <button class="botao">Cadastrar</button>
+            </form>
 
-                <div id="div_erros_login">
-                    
-                </div>
-           
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/circle-loading.gif" id="loading-gif">
+            </div>
+
+            <div id="div_erros_login">
+            </div>
         </div>
     </div>
-</div>
     <div class="footer">
-        <p>Direitos Reservados - Coffee Analytics &copy; 2021  </p>
+        <p>Direitos Reservados - Coffee Analytics &copy; 2021 </p>
     </div>
-    
-    
+
+
 
 </body>
 
@@ -114,30 +136,30 @@
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
-            
+
             window.alert("Preencha todos os campos para prosseguir!");
-            if (nome == "")  {
+            if (nome == "") {
                 console.log('nome está em branco')
             }
-            if (email == "" )  {
+            if (email == "") {
                 console.log('email está em branco')
             }
-            if (senha == "" )  {
+            if (senha == "") {
                 console.log('senha está em branco')
             }
-            if (confirmacaoSenha == "" )  {
+            if (confirmacaoSenha == "") {
                 console.log('confirmacaoSenha está em branco')
             }
             finalizarAguardar();
             return false;
         }
-        
+
         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
             finalizarAguardar();
             return false;
         }
-        
+
         if (senha != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
             finalizarAguardar();
@@ -157,7 +179,7 @@
                 limparFormulario();
                 finalizarAguardar();
             } else {
-                throw("Houve um erro ao tentar realizar o cadastro!");
+                throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
