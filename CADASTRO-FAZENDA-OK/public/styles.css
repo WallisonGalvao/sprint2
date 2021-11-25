@@ -488,7 +488,8 @@
 .banner .formLogin{
     margin-bottom: 150px;
     background: #fff;
-    width: 80%;
+    width: 60%;
+    height: 70%
     padding: 2%;
     border-style: solid;
     border-color: #000;
@@ -501,7 +502,58 @@
     font-size: 100%;
     font-weight: 500;
     color:#66271F;
-    height: 80vh;
+    padding-right: 20%
+    
+}
+
+.banner .formL{
+    margin-bottom: 150px;
+    background: #fff;
+    width: 60%;
+    height: 50%;
+    padding-top: 3%;
+    border-style: solid;
+    border-color: #000;
+    border-width: 1px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 100%;
+    font-weight: 500;
+    color:#66271F;
+    
+    
+}
+
+.banner .formL input{
+    height: 20px;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.banner .formL button{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #66271F;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    height: 50px;
+    width: 200px;
+    
+    
+}
+
+
+.banner #form_login{
+    padding-bottom: 10%
 }
 
 .banner .formLogin input{
@@ -510,6 +562,7 @@
     border-radius: 15px;
 
 }
+
 
 
 .banner .formLogin button{
@@ -525,6 +578,14 @@
     border-radius: 20px;
     height: 50px;
     width: 200px;
+    
+    
+}
+
+
+
+.banner .formLogin .esquerda{
+    margin-top: 10%;
 }
 
 .banner .formLogin .botao{
@@ -540,7 +601,13 @@
     border-radius: 20px;
     height: 50px;
     width: 200px;
-    margin-left: 22.5%;
+    margin-left: 55.5%;
+    margin-top: 15%;
+}
+
+.banner .formLogin h2{
+    padding-left: 36%;
+
 }
 
 .banner .formLogin .botton{
@@ -761,11 +828,14 @@
     border-width: 1px;
     height: 50%;
     width: 150%;
-    padding-top: 10%;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding-top: 10%
+    
+    
 }
 
 .banner .formLogin .total .esquerda{
@@ -790,4 +860,9 @@
 
 .banner .formLogin .h2L {
     margin-bottom: 10%;
+}
+
+.banner .formLogin .h3L {
+    margin-bottom: 10%;
+    padding-right: 25%;
 }
