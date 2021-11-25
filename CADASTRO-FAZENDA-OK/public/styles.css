@@ -82,20 +82,13 @@
     margin-top: 80px;
     display: flex;
     flex-direction: column;
-    
     align-items: center;
     justify-content: space-evenly;
-    height: 73vh;
-   
-    
+    height: 100vh;
     width: 100%;
     background-image: url(graosBottom.png);
     background-size: cover;
-   
-   
     display: flex;
-    
-    
     justify-content: space-around;
 }
 
@@ -249,7 +242,6 @@
     margin-top: 50px;
     margin-bottom: 50px;
     background-color:#fff;
-    margin-right: 30px;
     border-radius: 30px;
     height: 40  vh;
     width: 30vw;
@@ -259,6 +251,7 @@
     align-items: center;
     justify-content: space-evenly;
     padding: 20px;
+    border: solid 1px #000;
     }
 
 
@@ -303,10 +296,10 @@
 .banner .botoes {
     
     display: flex;
-    
+    flex-direction: column;
     align-items: center;
     width: 450px;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 20px;
  
     
@@ -316,15 +309,47 @@
 {
     background: #66271F;
     color: #fff;
-    
-    
-    margin-left: 30px;
+    /* margin-left: 0px; */
     width: 100%;
     padding: 10px;
     border-radius: 25px;
     border: none;
     font-size: 15px;
-    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+}
+
+.banner .botoes .limpar
+{
+    background: #66271F;
+    color: #fff;
+    width: 50%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 15%;
+}
+
+.banner .botoes .simular
+{
+    background: #66271F;
+    color: #fff;
+    width: 50%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
 }
 
 .banner .botoes button:hover{
@@ -399,12 +424,12 @@
 
 .bannerCadastro .formCadastro{
     
-    /* margin-bottom: 200px; */
+    margin-bottom: 200px;
     padding: 50px;
     border-radius: 30px;
    
     height: 30vh;
-    width: 60%;
+    width: fit-content;
     display: flex;
     
     justify-content: space-evenly;
@@ -461,25 +486,22 @@
 
  
 .banner .formLogin{
-    margin-top: 30px ;
     margin-bottom: 150px;
     background: #fff;
-    height: 55%;
-    width: 15%;
-    padding: 50px;
+    width: 80%;
+    padding: 2%;
     border-style: solid;
     border-color: #000;
     border-width: 1px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    
+    font-size: 100%;
     font-weight: 500;
     color:#66271F;
-    height: 100vh;
-    width: 15vw;
+    height: 80vh;
 }
 
 .banner .formLogin input{
@@ -491,10 +513,10 @@
 
 
 .banner .formLogin button{
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 20px;
     cursor: pointer;
-    background-color: #66271F ;
+    background-color: #66271F;
     color: #fff;
     font-size: 20px;
     font-weight: bolder;
@@ -502,7 +524,52 @@
     padding: 10px 20px;
     border-radius: 20px;
     height: 50px;
-    width: 200px; 
+    width: 200px;
+}
+
+.banner .formLogin .botao{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #66271F;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    height: 50px;
+    width: 200px;
+    margin-left: 22.5%;
+}
+
+.banner .formLogin .botton{
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #66271F;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    width: 200px;
+    margin-left: 22.5%;
+}
+
+.banner .formLogin .btn{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #66271F;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    height: 50px;
+    width: 200px;
 }
 
 .banner .formLogin button:hover{
@@ -541,25 +608,6 @@
     
 }
 
-.footer
-{
-    margin-top: 50px;
-    width: 100%;
-    background-color: #66271F;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.footer p
-{
-    color: #ffff;
-    font-weight: 500;
-    font-size: 12px;
-}
-
 .banner .contato {
     background-color: #fff;
     
@@ -587,8 +635,13 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.banner .contato h3{
     
-    
+    align-items: center;
+    display: flex;
+    flex-direction: column;   
 }
 
 .banner .contato .mensagem{
@@ -645,4 +698,96 @@
 .loading-div img {
     height: 50px;
     width: 50px;
+}
+
+.footer
+{
+
+    position: absolute;
+    width: 100%;
+    background-color: #66271F;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p
+{
+    color: #ffff;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.footer-contato
+{
+    width: 100%;
+    background-color: #66271F;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer-contato p
+{
+    color: #ffff;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.footer-simulador
+{
+    width: 100%;
+    background-color: #66271F;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer-simulador p
+{
+    color: #ffff;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.banner .formLogin .total {
+    margin: 0px;
+    align-items: center;
+    border-width: 1px;
+    height: 50%;
+    width: 150%;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner .formLogin .total .esquerda{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner .formLogin .total .meio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.banner .formLogin .total .direita{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.banner .formLogin .h2L {
+    margin-bottom: 10%;
 }
