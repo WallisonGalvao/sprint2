@@ -52,11 +52,11 @@
             <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                 <div class="total">
                     <div class="esquerda">
-                        Nome:
-                        <input name="nome" type="text" placeholder="nome">
+                        Nome ou Razão Social:
+                        <input name="nome" type="text" placeholder="FAZENDA X">
                         <br>
-                        CPF:
-                        <input name="cpf" type="text" placeholder="email@gmail.com">
+                        CPF/CNPJ:
+                        <input name="cpf" type="text" placeholder="123.456.789-10">
                         <br>
                         Telefone Celular:
                         <input name="celular" type="text" placeholder="000000">
@@ -64,22 +64,17 @@
                         Telefone Fixo:
                         <input name="fixo" type="text" placeholder="0000000">
                         <br>
-                        Email:
-                        <input name="email" type="text" placeholder="usuario@gmail.com">
                         <br>
                     </div>
                     <div class="meio">
+                        Email:
+                        <input name="email" type="text" placeholder="usuario@gmail.com">
                         Senha:
                         <input name="senha" type="password" placeholder="******">
                         <br>
                         Confirmação da Senha:
                         <input name="confirmacao-senha" type="password" placeholder="******">
                         <br>
-                        Nome: <br>
-                        <input name="nome" type="text" placeholder="nome">
-                        <br>
-                        CEP: <br>
-                        <input name="cep" type="text" placeholder="nome">
                     </div>
                     <div class="direita">
                         <br>
@@ -87,13 +82,15 @@
                         <input name="logradouro" type="text" placeholder="nome">
                         <br>
                         Número: <br>
-                        <input name="numero" type="text" placeholder="email@gmail.com">
+                        <input name="numero" type="text" placeholder="ex: 1023">
+                        CEP: <br>
+                        <input name="cep" type="text" placeholder="nome">
                         <br>
                         Cidade: <br>
-                        <input name="cidade" type="text" placeholder="email@gmail.com">
+                        <input name="cidade" type="text" placeholder="Ex: Belo Horizonte">
                         <br>
                         Estado: <br>
-                        <input name="estado" type="text" placeholder="email@gmail.com">
+                        <input name="estado" type="text" placeholder="Ex: MG">
                         <br>
                     </div>
                 </div>
@@ -109,7 +106,7 @@
         </div>
     </div>
     <div class="footer">
-        <p>Direitos Reservados - Coffee Analytics &copy; 2021 </p>
+        <p>Coffee Analytics &copy; 2021 </p>
     </div>
 
 
@@ -130,9 +127,17 @@
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
 
         var nome = formulario.get("nome");
+        var cpf = formulario.get("cpf");
+        var celular = formulario.get("celular");
+        var fixo = formulario.get("fixo");
         var email = formulario.get("email");
         var senha = formulario.get("senha");
         var confirmacaoSenha = formulario.get("confirmacao-senha");
+        var logradouro = formulario.get("logradouro");
+        var numero = formulario.get("numero");
+        var cep = formulario.get("cep");
+        var cidade = formulario.get("cidade");
+        var estado = formulario.get("estado");
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
@@ -175,7 +180,7 @@
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
-                window.location = "fazenda.html";
+                window.location = "setor.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {

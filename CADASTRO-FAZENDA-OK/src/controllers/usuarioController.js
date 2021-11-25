@@ -1,6 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
 
-var sessoes = [];
 
 function testar (req, res) {
     console.log("ENTRAMOS NA usuarioController");
@@ -67,15 +66,41 @@ function cadastrar(req, res) {
     var fixo = req.body.fixo;
     var email = req.body.email;
     var senha = req.body.senha;
+    var logradouro = req.body.logradouro;
+    var numero = req.body.numero;
+    var cep = req.body.cep;
+    var cidade = req.body.cidade;
+    var estado = req.body.estado;    
+
+    // [nome, cpf, celular, fixo].forEach(campo => {
+    //     if (campo === undefined) res.status(400).send("Campo está undefined!");
+    // })
+
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
+    } else if (cpf == undefined) {
+        res.status(400).send("Seu cpf está undefined!");
+    } else if (celular == undefined) {
+        res.status(400).send("celular está undefined!");
+    } else if (fixo == undefined) {
+        res.status(400).send("fixo está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (cep == undefined) {
+        res.status(400).send("Sua cep está undefined!");
+    } else if (logradouro == undefined) {
+        res.status(400).send("logradouro está undefined!");
+    } else if (numero == undefined) {
+        res.status(400).send("Seu numero está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("Sua cidade está undefined!");
+    } else if (estado == undefined) {
+        res.status(400).send("Seu estado está undefined!");
     } else {
-        usuarioModel.cadastrar(nome,cpf,celular,fixo, email, senha)
+        usuarioModel.cadastrar(nome,cpf,celular,fixo, email, senha, logradouro, numero, cep, cidade, estado)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -93,35 +118,35 @@ function cadastrar(req, res) {
     }
 }
 
-function fazenda(req, res) {
-    var nome = req.body.nome;
-   var email = req.body.email;
-   var senha = req.body.senha;
+// function fazenda(req, res) {
+//     var nome = req.body.nome;
+//    var email = req.body.email;
+//    var senha = req.body.senha;
    
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else {
-        usuarioModel.fazenda(nome, email, senha)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "\nHouve um erro ao realizar o cadastro! Erro: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-    }
-}
+//     if (nome == undefined) {
+//         res.status(400).send("Seu nome está undefined!");
+//     } else if (email == undefined) {
+//         res.status(400).send("Seu email está undefined!");
+//     } else if (senha == undefined) {
+//         res.status(400).send("Sua senha está undefined!");
+//     } else {
+//         usuarioModel.fazenda(nome, email, senha)
+//         .then(
+//             function (resultado) {
+//                 res.json(resultado);
+//             }
+//         ).catch(
+//             function (erro) {
+//                 console.log(erro);
+//                 console.log(
+//                     "\nHouve um erro ao realizar o cadastro! Erro: ",
+//                     erro.sqlMessage
+//                 );
+//                 res.status(500).json(erro.sqlMessage);
+//             }
+//         );
+//     }
+// }
 
 
 

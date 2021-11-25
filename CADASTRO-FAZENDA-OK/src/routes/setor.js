@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
   setorController.testar(req, res);
 });
 
-router.post('/setor', function (req, res) {
+router.post('/setor/:idFazenda', function (req, res) {
   setorController.setor(req, res);
 });
 

@@ -10,7 +10,7 @@ var app = express();
 
 var indexRouter = require('./src/routes/index');
 var usuarioRouter = require('./src/routes/usuarios');
-var fazendaRouter = require('./src/routes/fazenda');
+// var fazendaRouter = require('./src/routes/fazenda');
 // var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require('./src/routes/medidas');
 var setorRouter = require('./src/routes/setor');
@@ -23,7 +23,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/usuarios', usuarioRouter);
-app.use('/fazenda', fazendaRouter);
+// app.use('/fazenda', fazendaRouter);
 app.use('/setor', setorRouter);
 app.use('/medidas', medidasRouter);
 // app.use("/avisos", avisosRouter);

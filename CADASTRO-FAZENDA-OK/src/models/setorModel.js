@@ -13,6 +13,8 @@ function setor(nomeSetor, fkFazenda) {
   return database.executar(instrucao);
 }
 
+
+
 module.exports = {
   setor
 };

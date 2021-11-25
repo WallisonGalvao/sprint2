@@ -36,7 +36,8 @@ router.post('/sendData', (request, response) => {
   temperatura_dht11 = temperatura_dht11[temperatura_dht11.length - 1];
   luminosidade = luminosidade[luminosidade.length - 1];
   temperatura_lm35 = temperatura_lm35[temperatura_lm35.length - 1];
-  var sql = `INSERT INTO medidas (idMedidas,umidade, temperatura_dht11) VALUES (null, ${umidade},${temperatura_dht11})`;
+  var sql = `INSERT INTO REGISTRO (IDREGISTRO, TEMPERATURA, UMIDADE)
+   VALUES (null, ${umidade},${temperatura_lm35})`;
 
   db.query(sql, function (err, result) {
     if (err) throw err;
