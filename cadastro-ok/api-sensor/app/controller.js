@@ -39,11 +39,12 @@ router.post('/sendData', (request, response) => {
   luminosidade = luminosidade[luminosidade.length - 1];
   temperatura_lm35 = temperatura_lm35[temperatura_lm35.length - 1];
 
-  var sql = `INSERT INTO REGISTROS (IDREGISTRO, TEMPERATURA, UMIDADE, DATA_HORA_REGISTRO, FKSETOR)  VALUES (null, ${temperatura_lm35}, ${umidade}, now(), ${((Math.random()*3)+1)})`;
+  var sql = `INSERT INTO REGISTROS (IDREGISTRO, TEMPERATURA, UMIDADE, DATA_HORA_REGISTRO, FKSETOR) 
+   VALUES (null, ${temperatura_lm35}, ${umidade}, now(), ${((Math.random()*3)+1)})`;
 
   db.query(sql, function (err, result) {
     if (err) throw err;
-    // console log mostra os registros inceridos
+    // console log mostra os registros inseridos
     console.log('Number of records inserted: ' + result.affectedRows);
   });
 

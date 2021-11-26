@@ -14,13 +14,13 @@ function testar (req, res) {
 
 function setor(req, res) {
     var nome = req.body.nome;
-    // var fkFazenda = req.params.fkFazenda;
+    var fkFazenda = req.params.fkFazenda;
    
    
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else {
-        setorModel.setor(nome)
+        setorModel.setor(nome, fkFazenda)
         .then(
             function (resultado) {
                 res.json(resultado);
