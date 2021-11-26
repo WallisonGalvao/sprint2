@@ -486,10 +486,10 @@
 
  
 .banner .formLogin{
-    margin-bottom: 150px;
+    margin-bottom: 5%;
     background: #fff;
-    width: 60%;
-    height: 70%
+    width: 50%;
+    height: 60%
     padding: 2%;
     border-style: solid;
     border-color: #000;
@@ -502,7 +502,8 @@
     font-size: 100%;
     font-weight: 500;
     color:#66271F;
-    padding-right: 20%
+    padding-right: 20%;
+    margin-top: 0.5%
     
 }
 
@@ -607,6 +608,7 @@
 
 .banner .formLogin h2{
     padding-left: 36%;
+    padding-top: 6%;
 
 }
 
@@ -826,14 +828,14 @@
     margin: 0px;
     align-items: center;
     border-width: 1px;
-    height: 50%;
+    height: 70%;
     width: 150%;
     
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10%
+    
     
     
 }
