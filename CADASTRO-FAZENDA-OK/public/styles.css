@@ -489,7 +489,7 @@
     margin-bottom: 5%;
     background: #fff;
     width: 50%;
-    height: 60%
+    height: 90%;
     padding: 2%;
     border-style: solid;
     border-color: #000;
@@ -501,9 +501,15 @@
     align-items: center;
     font-size: 100%;
     font-weight: 500;
-    color:#66271F;
+    color: #66271F;
     padding-right: 20%;
     margin-top: 0.5%
+    
+}
+
+.banner .formLogin input{
+    width: 100%;
+   
     
 }
 
@@ -548,6 +554,7 @@
     border-radius: 20px;
     height: 50px;
     width: 200px;
+    margin-left: 14%;
     
     
 }
@@ -590,7 +597,7 @@
 }
 
 .banner .formLogin .botao{
-    margin-top: 50px;
+    margin-top: 20%;
     margin-bottom: 20px;
     cursor: pointer;
     background-color: #66271F;
@@ -602,8 +609,9 @@
     border-radius: 20px;
     height: 50px;
     width: 200px;
-    margin-left: 55.5%;
-    margin-top: 15%;
+    margin-left: 53.5%;
+    margin-top: 1%;
+    
 }
 
 .banner .formLogin h2{
@@ -829,8 +837,8 @@
     align-items: center;
     border-width: 1px;
     height: 70%;
-    width: 150%;
-    
+    width: 100%;
+    padding-left: 18%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -844,20 +852,25 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .banner .formLogin .total .meio{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 10%;
+    margin-left: 7%;
+    
 }
 
 .banner .formLogin .total .direita{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 10%;
+    margin-left: 6.1%;
+    margin-bottom: 2%;
+    padding-bottom:  2%;
+
 }
 
 .banner .formLogin .h2L {
