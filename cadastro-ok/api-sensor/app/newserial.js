@@ -49,8 +49,8 @@ class ArduinoRead {
                 } 
             }
             // console.log(this.listData);
-            console.log('Data', data_float2);
-            console.log('Data', data_float);
+            console.log('Umidade', data_float2);
+            console.log('Temperatura', data_float);
             this.listData[0].data.push(data_float2);
             this.listData[3].data.push(data_float);
 

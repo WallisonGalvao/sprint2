@@ -24,7 +24,7 @@
 <body onload="validarSessao(),  obterDadosGrafico(1)">
     <div class="janela">
         <div class="header-left">
-            <img class="logo" src="../logoxicara.png" alt="">
+            <img class="logo" src="../logoxicara.png" alt="logo">
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario"></span>!</h3>
@@ -70,7 +70,7 @@
                 <button class="btn-chart" onclick="obterDadosGrafico(3)">Setor 3</button>
                 <button class="btn-chart" onclick="obterDadosGrafico(4)">Setor 4</button>
             </div>
-            <div class="graph">
+            <!-- <div class="graphics"> -->
                 <div class="graph">
                     <canvas id="canvas_grafico"></canvas>
                     <span id="alertaUmidadeSpan" class="alertaUsuario" />  
@@ -83,7 +83,9 @@
     
                     <span id="alertaTemperaturaSpan" class="alertaUsuario" />
                 </div>
-            </div>
+            <!-- </div> -->
+
+           
             
         </div>
     </div>
@@ -314,11 +316,11 @@
 
                     window.grafico_linha2.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 1000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 1000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 5000);
             }
         })
             .catch(function (error) {
@@ -349,7 +351,7 @@
 
 
     function alertaTemperatura (temperatura) {
-        if (temperatura <= 14) return cores ("critico")
+        if (temperatura <= 14) return cores ("critico");
 
         if (temperatura <= 16 && temperatura < 17) return cores ("emergencia");
 
@@ -395,8 +397,8 @@
             case "alerta":
                 return {
                     name: "em alerta",
-                    color: '#F2C14E',
                     border: '#FDE74C',
+                    color: '#F2C14E',
                 };
             case "emergencia":
                 return {

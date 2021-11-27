@@ -52,7 +52,7 @@
             
         <div class="formSetor ">
             
-            <h2>Dados do Setor</h2> <br>
+            <h2>Cadastro de setores</h2> <br>
                     <form id="form_cadastro" method="post" onsubmit="return setor()">
                         
                         Nome:
@@ -123,13 +123,13 @@ function setor() {
         window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
         finalizarAguardar();
         return false;
-    }
+    } */
     
-    if (senha != confirmacaoSenha) {
-        window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+    if (nome == "") {
+        window.alert("nome inválido");
         finalizarAguardar();
         return false;
-    }*/
+    }
 
     fetch(`/setor/setor/${sessionStorage.ID_USUARIO}`, {
         method: "POST",
