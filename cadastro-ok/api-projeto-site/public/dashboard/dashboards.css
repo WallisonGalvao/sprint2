@@ -235,3 +235,8 @@
     background-color: #66271F;
     margin: 5px;
 }
+
+.alertaUsuario {
+    color: white;
+    font-size: 28px;
+}

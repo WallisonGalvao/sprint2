@@ -37,11 +37,11 @@
             </div>
 
 
-            <div class="btn-nav-white">
+            <!-- <div class="btn-nav-white">
                 <a href="./cards.html">
                     <h3>Aquários</h3>
                 </a>
-            </div>
+            </div> -->
 
 
             <div class="btn-nav">
@@ -72,13 +72,13 @@
             </div>
             <div class="graph">
                 <canvas id="canvas_grafico"></canvas>
-
+                <span id="alertaUmidadeSpan" class="alertaUsuario" />
 
             </div>
             <div class="graph">
                 <canvas id="canvas_grafico2"></canvas>
 
-
+                <span id="alertaTemperaturaSpan" class="alertaUsuario" />
             </div>
         </div>
     </div>
@@ -106,7 +106,7 @@
                 response.json().then(function (respostaFormatadaEmJSON) {
                     console.log(`Dados recebidos: ${JSON.stringify(respostaFormatadaEmJSON)}`);
                     respostaFormatadaEmJSON.reverse();
-
+                    
                     plotarGrafico(respostaFormatadaEmJSON, idAquario);
                     plotarGrafico2(respostaFormatadaEmJSON, idAquario);
                 });
@@ -147,7 +147,6 @@
             dados.datasets[0].data.push(registro.umidade);
         }
         console.log(JSON.stringify(dados));
-
 
 
 
@@ -271,7 +270,9 @@
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 
-                    atualizarCorGrafico(dados, alertaUmidade(novoRegistro[0]))
+                    let alerta = alertaUmidade(novoRegistro[0].umidade)
+                    atualizarCorGrafico(dados, alerta)
+                    notificarUmidadeAlerta(alerta);
 
                     window.grafico_linha.update();
 
@@ -302,7 +303,9 @@
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
 
-                    atualizarCorGrafico(dados, alertaTemperatura(novoRegistro[0]))
+                    let alerta = alertaTemperatura(novoRegistro[0].temperatura);
+                    atualizarCorGrafico(dados, alerta);
+                    notificarTemperaturaAlerta(alerta);
 
                     window.grafico_linha2.update();
 
@@ -320,15 +323,27 @@
 
     }
 
-    function atualizarCorGrafico (dados, { color, border }) {
-        dados.datasets.forEach(dataset => {
-            dataset.backgroundColor = color;
-            dataset.borderColor = border;
-        });
+    function notificarUmidadeAlerta(alerta) {
+        notificarAlerta(alertaUmidadeSpan, alerta);
+    }
+
+    function notificarTemperaturaAlerta(alerta) {
+        notificarAlerta(alertaTemperaturaSpan, alerta)
+    }
+
+    function notificarAlerta(elemento, alerta) {
+        elemento.innerHTML = `A medida está: ${alerta.name}`;  
+        elemento.style.color = alerta.color;
     }
 
 
-    function alertaTemperatura ({ temperatura }) {
+    function atualizarCorGrafico (dados, alerta) {
+        dados.datasets[0].backgroundColor = alerta.color;
+        dados.datasets[0].borderColor = alerta.border;
+    }
+
+
+    function alertaTemperatura (temperatura) {
         if (temperatura <= 14) return cores ("critico")
 
         if (temperatura <= 16 && temperatura < 17) return cores ("emergencia");
@@ -346,8 +361,8 @@
         return cores("normal");
     }
 
-    function alertaUmidade ({ umidade }) {
-        if (umidade <= 20) return cores ("critico")
+    function alertaUmidade (umidade) {
+        if (umidade <= 20) return cores ("critico");
 
         if (umidade <= 25 && umidade < 30) return cores ("emergencia");
 
@@ -368,26 +383,31 @@
         switch (tipo) {
             case "ideal":
                 return {
-                    color: 'green',
-                    border: 'green',
+                    name: "ideal",
+                    color: '#2BA84A',
+                    border: '#248232',
                 };
             case "alerta":
                 return {
-                    color: 'yellow',
-                    border: 'white',
+                    name: "em alerta",
+                    color: '#F2C14E',
+                    border: '#FDE74C',
                 };
             case "emergencia":
                 return {
-                    color: 'orange',
-                    border: 'orange',
+                    name: "emergencial",
+                    color: '#FFB20F',
+                    border: '#FF9505',
                 };
             case "critico":
                 return {
-                    color: 'red',
-                    border: 'red',
+                    name: "crítica",
+                    color: '#EF271B',
+                    border: '#931F1D',
                 };
             default:
                 return {
+                    name: "normal",
                     border: '#32B9CD',
                     color: '#32b9cd8f',
                 };
