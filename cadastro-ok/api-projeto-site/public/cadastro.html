@@ -48,14 +48,15 @@
             
         <div class="formLogin ">
             
-            <h2>Bem-vindo!</h2>
-                    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                        
+        <h2>Bem-vindo!</h2>
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <div class="total">
+                    <div class="esquerda">
                         Nome:
-                        <input name="nome" type="text" placeholder="nome">
+                        <input name="nome" type="text" placeholder="Nome">
                         <br>
                         CPF/CNPJ:
-                        <input name="cpf_cnpj" type="text" placeholder="">
+                        <input name="cpf_cnpj" type="text" placeholder="xxxxx-xx">
                         <br>
                         Telefone Celular:
                         <input name="celular" type="text" placeholder="000000">
@@ -63,30 +64,36 @@
                         Telefone Fixo:
                         <input name="fixo" type="text" placeholder="0000000">
                         <br>
+                    </div>
+                    <div class="meio">
                         Email:
                         <input name="email" type="text" placeholder="usuario@gmail.com">
                         <br>
                         Senha:
                         <input name="senha" type="password" placeholder="******">
                         <br>
-                        Confirmação da Senha:
+                        <span class="confi"> Confirmação da Senha: </span>
                         <input name="confirmacao-senha" type="password" placeholder="******">
                         <br>
                         Logradouro:
-                        <input name="logradouro" type="password">
+                        <input name="logradouro" type="text" placeholder="Ex: Rua das Caxias">
                         <br>
+                    </div>
+                    <div class="direita">                     
                         Número:
-                        <input name="numero" type="password" placeholder="Ex: 322">
+                        <input name="numero" type="text" placeholder="Ex: 322">
                         <br>
                         CEP:
-                        <input name="cep" type="password" placeholder="xxxxx-xx">
+                        <input name="cep" type="text" placeholder="xxxxx-xx">
                         <br>
                         Cidade:
-                        <input name="cidade" type="password" placeholder="">
+                        <input name="cidade" type="text" placeholder="Ex: Mauá">
                         <br>
                         Estado:
-                        <input name="estado" type="password" placeholder="">
+                        <input name="estado" type="text" placeholder="Ex: SP">
                         <br>
+                    </div> 
+                </div>          
 
                         <button class="botao">Cadastrar</button>
                     </form>
