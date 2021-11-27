@@ -269,7 +269,7 @@ form {
     justify-content: space-evenly;
     align-items: center;
     border-right: 3px solid #66271F;
-    background-color: #212124;
+    background-color: #fff;
     /* border: 3px solid pink; */
 }
 
@@ -291,16 +291,19 @@ form {
     width: 100%;
     display: flex;
     justify-content: center;
+    background: transparent;
 }
 
 .hello h3 {
-    color: #E3B062;
+    color: #66271F;
     font-weight: 300;
     font-size: 1.2rem;
+    background: transparent;
 }
 
 .hello h3 span {
     font-weight: 800;
+    background: transparent;
 }
 
 .btn-nav {
@@ -331,6 +334,7 @@ form {
 .btn-nav h3, .btn-logout h3 {
     margin: 0;
     padding: 0;
+    background: transparent;
 }
 
 .btn-logout {

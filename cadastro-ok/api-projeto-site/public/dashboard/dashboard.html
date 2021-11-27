@@ -24,7 +24,7 @@
 <body onload="validarSessao(),  obterDadosGrafico(1)">
     <div class="janela">
         <div class="header-left">
-            <h1>Coffee Analytics</h1>
+            <img class="logo" src="../logoxicara.png" alt="">
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario"></span>!</h3>
@@ -71,15 +71,20 @@
                 <button class="btn-chart" onclick="obterDadosGrafico(4)">Setor 4</button>
             </div>
             <div class="graph">
-                <canvas id="canvas_grafico"></canvas>
-                <span id="alertaUmidadeSpan" class="alertaUsuario" />
-
+                <div class="graph">
+                    <canvas id="canvas_grafico"></canvas>
+                    <span id="alertaUmidadeSpan" class="alertaUsuario" />  
+                    
+                
+    
+                </div>
+                <div class="graph">
+                    <canvas id="canvas_grafico2"></canvas>
+    
+                    <span id="alertaTemperaturaSpan" class="alertaUsuario" />
+                </div>
             </div>
-            <div class="graph">
-                <canvas id="canvas_grafico2"></canvas>
-
-                <span id="alertaTemperaturaSpan" class="alertaUsuario" />
-            </div>
+            
         </div>
     </div>
 

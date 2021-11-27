@@ -2,6 +2,7 @@
 
 *, body {
     font-family: 'Exo 2', sans-serif;
+    background-color: #e5e5e5;
 }
 
 .dash-right .avisos {
@@ -88,7 +89,7 @@
 }
 
 .div-results .feed-container {
-    background-color: #212124;
+    background-color: #fff;
     border-radius: 5px;
     margin-bottom: 80px;
 }
@@ -113,7 +114,8 @@
     position: relative;
     top: 0;
     left: 25%;
-    background-color: #161618;
+    background-color: #e5e5e5;
+    
 
     /* width: 75%;
     display: flex;
@@ -132,25 +134,7 @@
     margin-top: 30px;
 }
 
-.perigo-frio {
-    background-color: #5C6BC0;
-}
 
-.perigo-quente {
-    background-color: #FF7043;
-}
-
-.alerta-frio {
-    background-color: #42A5F5;
-}
-
-.alerta-quente {
-    background-color: #FFEE58;
-}
-
-.ideal {
-    background-color: #9CCC65;
-}
 
 .item-regua {
     padding: 5px;
@@ -234,9 +218,35 @@
     color: white;
     background-color: #66271F;
     margin: 5px;
+    border-radius: 5px;
+}
+
+.botaoSetor {
+    font-family: 'Exo 2', sans-serif;
+    border: 0;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #66271F;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.botaoSetor a {
+    background: transparent;
 }
 
 .alertaUsuario {
     color: white;
     font-size: 28px;
+    margin-bottom: 25px;
+}
+
+#canvas_grafico {
+    margin-bottom: 50px;
+}
+
+.logo {
+    background: transparent;
 }
