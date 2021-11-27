@@ -27,13 +27,13 @@
 		<div id="msg">
 			<span style="color: red;">Alertaaaaaaaa</span>
 		</div>
-		<h1>Sensor DHT 11 - Temperatura</h1>
+		<!-- <h1>Sensor DHT 11 - Temperatura</h1>
 		<section>
 			<h2>Média: <label id="average2">0.00</label></h2>
 		</section>
 		<section style="width: 100%;">
 			<canvas id="chart2"></canvas>
-		</section>
+		</section> -->
 
 		<!-- <h1>Luminosidade</h1>
 			<section>
@@ -42,13 +42,13 @@
 			<section style="width: 100%;">
 				<canvas id="chart3"></canvas>
 			</section> -->
-		<!-- <h1>LM35 - Temperatura</h1>
+		<h1>LM35 - Temperatura</h1>
 		<section>
 			<h2>Média: <label id="average4">0.00</label></h2>
 		</section>
 		<section style="width: 100%;">
 			<canvas id="chart4"></canvas>
-		</section>-->
+		</section>
 	</div>
 
 	<script>
@@ -139,97 +139,97 @@
 		}
 
 
-		var context2 = document.getElementById("chart2").getContext("2d");
-		context2.canvas.width = 1000;
-		context2.canvas.height = 300;
+		// var context2 = document.getElementById("chart2").getContext("2d");
+		// context2.canvas.width = 1000;
+		// context2.canvas.height = 300;
 
-		var configuration2 = {
-			type: 'line',
-			data: {
-				datasets: [{
-					label: "Temperatura",
-					type: 'line',
-					borderColor: ['#ff3232'],
-					backgroundColor: ['#ff7f7f']
-				}]
-			},
-			options: {
-				scales: {
-					xAxes: [{
-						distribution: 'series',
-						ticks: {
-							beginAtZero: true
-						}
-					}],
-					yAxes: [{
-						scaleLabel: {
-							display: true,
-							labelString: 'Luminosidade'
-						},
-						ticks: {
-							beginAtZero: true
-						}
-					}]
-				},
-				animation: {
-					duration: 0
-				}
-			}
-		};
+		// var configuration2 = {
+		// 	type: 'line',
+		// 	data: {
+		// 		datasets: [{
+		// 			label: "Temperatura",
+		// 			type: 'line',
+		// 			borderColor: ['#ff3232'],
+		// 			backgroundColor: ['#ff7f7f']
+		// 		}]
+		// 	},
+		// 	options: {
+		// 		scales: {
+		// 			xAxes: [{
+		// 				distribution: 'series',
+		// 				ticks: {
+		// 					beginAtZero: true
+		// 				}
+		// 			}],
+		// 			yAxes: [{
+		// 				scaleLabel: {
+		// 					display: true,
+		// 					labelString: 'Luminosidade'
+		// 				},
+		// 				ticks: {
+		// 					beginAtZero: true
+		// 				}
+		// 			}]
+		// 		},
+		// 		animation: {
+		// 			duration: 0
+		// 		}
+		// 	}
+		// };
 
-		var chart2 = new Chart(context2, configuration2);
+		// var chart2 = new Chart(context2, configuration2);
 
-		//Função para obter os dados de temperatura do server
-		//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+		// //Função para obter os dados de temperatura do server
+		// //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
 
-		//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-		//hora de montar/atualizar o gráfico
-		this.lastIndexTemp2 = 0;
-		this.time2 = 0;
+		// //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+		// //hora de montar/atualizar o gráfico
+		// this.lastIndexTemp2 = 0;
+		// this.time2 = 0;
 
-		function get_data2() {
+		// function get_data2() {
 
-			var http = new XMLHttpRequest();
-			http.open('GET', 'http://localhost:3000/api', false);
-			http.send(null);
+		// 	var http = new XMLHttpRequest();
+		// 	http.open('GET', 'http://localhost:3000/api', false);
+		// 	http.send(null);
 
-			var obj2 = JSON.parse(http.responseText);
-			//Assinar ao segundo index
-			obj2 = obj2[1];
-			if (obj2.data.length == 0) {
-				return;
-			}
+		// 	var obj2 = JSON.parse(http.responseText);
+		// 	//Assinar ao segundo index
+		// 	obj2 = obj2[1];
+		// 	if (obj2.data.length == 0) {
+		// 		return;
+		// 	}
 
-			var _lastIndexTemp2 = this.lastIndexTemp2;
-			this.lastIndexTemp2 = obj2.data.length;
-			listTemp2 = obj2.data.slice(_lastIndexTemp2);
+		// 	var _lastIndexTemp2 = this.lastIndexTemp2;
+		// 	this.lastIndexTemp2 = obj2.data.length;
+		// 	listTemp2 = obj2.data.slice(_lastIndexTemp2);
 
-			listTemp2.forEach(data => {
-				//Máximo de 60 itens exibidos no gráfico
-				if (chart2.data.labels.length == 10 && chart2.data.datasets[0].data.length == 10) {
-					chart2.data.labels.shift();
-					chart2.data.datasets[0].data.shift();
-				}
+		// 	listTemp2.forEach(data => {
+		// 		//Máximo de 60 itens exibidos no gráfico
+		// 		if (chart2.data.labels.length == 10 && chart2.data.datasets[0].data.length == 10) {
+		// 			chart2.data.labels.shift();
+		// 			chart2.data.datasets[0].data.shift();
+		// 		}
 
-				chart2.data.labels.push(this.time++);
-				chart2.data.datasets[0].data.push(parseFloat(data));
-				chart2.update();
+		// 		chart2.data.labels.push(this.time++);
+		// 		chart2.data.datasets[0].data.push(parseFloat(data));
+		// 		chart2.update();
 
-				if (data > 35) {
-					chart2.data.datasets[0].backgroundColor = 'red'
-					chart2.data.datasets[0].borderColor = 'red'
-					msg2.style.display = 'block'
+		// 		if (data > 35) {
+		// 			chart2.data.datasets[0].backgroundColor = 'red'
+		// 			chart2.data.datasets[0].borderColor = 'red'
+		// 			msg2.style.display = 'block'
 
-				}
-				else if (data < 35) {
-					chart2.data.datasets[0].backgroundColor = '#00FA9A'
-					chart2.data.datasets[0].borderColor = '#008000'
-					msg2.style.display = 'none'
-				}
-			});
+		// 		}
+		// 		else if (data < 35) {
+		// 			chart2.data.datasets[0].backgroundColor = '#00FA9A'
+		// 			chart2.data.datasets[0].borderColor = '#008000'
+		// 			msg2.style.display = 'none'
+		// 		}
+		// 	});
 
-			document.getElementById('average2').textContent = obj2.average;
-		}
+		// 	document.getElementById('average2').textContent = obj2.average;
+		// }
 
 		// var context3 = document.getElementById("chart3").getContext("2d");
 		// context3.canvas.width = 1000;
@@ -309,82 +309,82 @@
 
 
 
-		// var configuration4 = {
-		// 	type: 'line',
-		// 	data: {
-		// 		datasets: [{
-		// 			label: "Temperatura",
-		// 			type: 'line',
-		// 			borderColor: ['#581845'],
-		// 			backgroundColor: ['#581845']
-		// 		}]
-		// 	},
-		// 	options: {
-		// 		scales: {
-		// 			xAxes: [{
-		// 				distribution: 'series',
-		// 				ticks: {
-		// 					beginAtZero: true
-		// 				}
-		// 			}],
-		// 			yAxes: [{
-		// 				scaleLabel: {
-		// 					display: true,
-		// 					labelString: 'Luminosidade'
-		// 				},
-		// 				ticks: {
-		// 					beginAtZero: true
-		// 				}
-		// 			}]
-		// 		},
-		// 		animation: {
-		// 			duration: 0
-		// 		}
-		// 	}
-		// };
+		var configuration4 = {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "Temperatura",
+					type: 'line',
+					borderColor: ['#581845'],
+					backgroundColor: ['#581845']
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						distribution: 'series',
+						ticks: {
+							beginAtZero: true
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Luminosidade'
+						},
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+		};
 
-		// var context4 = document.getElementById("chart4").getContext("2d");
-		// context4.canvas.width = 1000;
-		// context4.canvas.height = 300;
+		var context4 = document.getElementById("chart4").getContext("2d");
+		context4.canvas.width = 1000;
+		context4.canvas.height = 300;
 
-		// var chart4 = new Chart(context4, configuration4);
+		var chart4 = new Chart(context4, configuration4);
 
-		// this.lastIndexTemp4 = 0;
-		// this.time4 = 0;
+		this.lastIndexTemp4 = 0;
+		this.time4 = 0;
 
 
-		// function get_data4() {
+		function get_data4() {
 
-		// 	var http = new XMLHttpRequest();
-		// 	http.open('GET', 'http://localhost:3000/api', false);
-		// 	http.send(null);
+			var http = new XMLHttpRequest();
+			http.open('GET', 'http://localhost:3000/api', false);
+			http.send(null);
 
-		// 	var obj = JSON.parse(http.responseText);
-		// 	//Assinar ao segundo index
-		// 	console.log(obj)
-		// 	obj = obj[3];
-		// 	if (obj.data.length == 0) {
-		// 		return;
-		// 	}
+			var obj = JSON.parse(http.responseText);
+			//Assinar ao segundo index
+			console.log(obj)
+			obj = obj[3];
+			if (obj.data.length == 0) {
+				return;
+			}
 
-		// 	var _lastIndexTemp4 = this.lastIndexTemp4;
-		// 	this.lastIndexTemp4 = obj.data.length;
-		// 	listTemp4 = obj.data.slice(_lastIndexTemp4);
+			var _lastIndexTemp4 = this.lastIndexTemp4;
+			this.lastIndexTemp4 = obj.data.length;
+			listTemp4 = obj.data.slice(_lastIndexTemp4);
 
-		// 	listTemp4.forEach(data => {
-		// 		//Máximo de 60 itens exibidos no gráfico
-		// 		if (chart4.data.labels.length == 10 && chart4.data.datasets[0].data.length == 10) {
-		// 			chart4.data.labels.shift();
-		// 			chart4.data.datasets[0].data.shift();
-		// 		}
+			listTemp4.forEach(data => {
+				//Máximo de 60 itens exibidos no gráfico
+				if (chart4.data.labels.length == 10 && chart4.data.datasets[0].data.length == 10) {
+					chart4.data.labels.shift();
+					chart4.data.datasets[0].data.shift();
+				}
 
-		// 		chart4.data.labels.push(this.time++);
-		// 		chart4.data.datasets[0].data.push(parseFloat(data));
-		// 		chart4.update();
-		// 	});
+				chart4.data.labels.push(this.time++);
+				chart4.data.datasets[0].data.push(parseFloat(data));
+				chart4.update();
+			});
 
-		// 	document.getElementById('average4').textContent = obj.average;
-		// }
+			document.getElementById('average4').textContent = obj.average;
+		}
 
 		function sendSensorsData() {
 			var http = new XMLHttpRequest();
@@ -394,9 +394,9 @@
 
 		setInterval(() => {
 			get_data();
-			get_data2();
+			// get_data2();
 			// get_data3();
-			// get_data4();
+			get_data4();
 			sendSensorsData();
 		}, 1000);
 	</script>

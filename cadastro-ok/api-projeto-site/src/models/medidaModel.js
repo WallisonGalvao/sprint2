@@ -16,10 +16,10 @@ function buscarUltimasMedidas(idAquario,limite_linhas) {
 function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `SELECT temperatura, 
                             umidade, 
-                            DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
+                            DATE_FORMAT(DATA_HORA_REGISTRO,'%H:%i:%s') as momento_grafico, 
                             FKSETOR 
                             FROM REGISTROS WHERE FKSETOR = ${idAquario} 
-                    order by id desc limit 1`;
+                    order by IDREGISTRO desc limit 1`;
                     
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);

@@ -14,7 +14,7 @@ function testar (req, res) {
 
 function setor(req, res) {
     var nome = req.body.nome;
-    var fkFazenda = req.params.fkFazenda;
+    var fkFazenda = req.params.idFazenda;
    
    
     if (nome == undefined) {

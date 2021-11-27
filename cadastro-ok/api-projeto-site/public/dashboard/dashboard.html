@@ -31,6 +31,18 @@
             </div>
 
            
+            
+                <div class="botaoSetor">
+                    <a href="setor.html">Cadastre os setores</a>
+                </div>
+
+           
+            <div class="btn-nav-white">
+                <a href="./cards.html">
+                    <h3>Aquários</h3>
+                </a>
+            </div>
+
 
             <div class="btn-nav">
 
@@ -38,11 +50,11 @@
 
             </div>
 
-            <div class="btn-nav-white">
+            <!-- <div class="btn-nav-white">
                 <a href="./mural.html">
                     <h3>Mural de Avisos</h3>
                 </a>
-            </div>
+            </div> -->
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -60,6 +72,13 @@
             </div>
             <div class="graph">
                 <canvas id="canvas_grafico"></canvas>
+                
+
+            </div>
+            <div class="graph">
+                <canvas id="canvas_grafico2"></canvas>
+                
+
             </div>
         </div>
     </div>
@@ -89,6 +108,7 @@
                     respostaFormatadaEmJSON.reverse();
 
                     plotarGrafico(respostaFormatadaEmJSON, idAquario);
+                    plotarGrafico2(respostaFormatadaEmJSON, idAquario);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -128,7 +148,46 @@
         }
         console.log(JSON.stringify(dados));
 
-    function plotarGrafico2(resposta, idAquario) {
+    
+       
+
+
+        var ctx = canvas_grafico.getContext('2d');
+        window.grafico_linha = Chart.Line(ctx, {
+            data: dados,
+            //Configurações do gráfico
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Histórico recente de umidade'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-umidade',
+                    }, {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        id: 'y-umidade',
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+        setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
+
+    }
+        function plotarGrafico2(resposta, idAquario) {
         console.log('iniciando plotagem do gráfico...');
 
         var dados = {
@@ -154,47 +213,12 @@
             dados.datasets[0].data.push(registro.temperatura);
         }
 
-       
-
-
-        var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
-            data: dados,
-            //Configurações do gráfico
-            options: {
-                responsive: true,
-                animation: { duration: 500 },
-                hoverMode: 'index',
-                stacked: false,
-                title: {
-                    display: true,
-                    text: 'Histórico recente de temperatura'
-                },
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-temperatura',
-                    }, {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        id: 'y-temperatura',
-
-                        gridLines: {
-                            drawOnChartArea: false,
-                        },
-                    }],
-                }
-            }
-        });
 
         //Atualiza os dados de 2 em 2 segundos
-    }
+    
     //verificar JP
-        var ctx2 = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
+        var ctx2 = canvas_grafico2.getContext('2d');
+        window.grafico_linha2 = Chart.Line(ctx2, {
             data: dados,
             //Configurações do gráfico
             options: {
@@ -216,7 +240,7 @@
                         type: 'linear',
                         display: true,
                         position: 'right',
-                        id: 'y-umidade',
+                        id: 'y-temperatura',
                         
                         gridLines: {
                             drawOnChartArea: false,
@@ -225,10 +249,12 @@
                 }
             }
         });
+        // Atualiza os dados de 2 em 2 segundos
+        setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
+        }    
         
-        //Atualiza os dados de 2 em 2 segundos
-        setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
-        // setTimeout(() => atualizarGrafico(idAquario, dados2), 2000);
+        
+       
         
         
         // só mexer se quiser alterar o tempo de atualização
@@ -276,18 +302,25 @@
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
 
+                    if (novoRegistro[0].temperatura > 10){
+                        console.log("ALERTAAAAAAAAAAAA");
+                    }
+
                     window.grafico_linha2.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 5000);
             }
         })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-    }
+            
+        }
+    
+
 </script>

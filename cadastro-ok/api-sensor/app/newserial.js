@@ -36,6 +36,28 @@ class ArduinoRead {
         this.__listDataTemp = [];
     }
 
+    fake_data() {
+        setInterval(() => {
+            let data_float2 = sensors.dht11(20,90);
+            let data_float = sensors.lm35(-2, 40);
+
+            if (this.listData.length === 59) {
+                let sum = this.listData.reduce((a, b) => a + b, 0);
+                this.listDataHour.push((sum / this.listData.length).toFixed(2));
+                while (this.listData.length > 0) {
+                    this.listData.pop();
+                } 
+            }
+            // console.log(this.listData);
+            console.log('Data', data_float2);
+            console.log('Data', data_float);
+            this.listData[0].data.push(data_float2);
+            this.listData[3].data.push(data_float);
+
+
+        }, 2000);
+    }
+
 
     get List() {
         return this.listData;
@@ -50,6 +72,7 @@ class ArduinoRead {
             });
 
             if (listArduinoSerial.length != 1) {
+                this.fake_data();
                 console.log("Arduino not found - Generating data");
             } else {
                 console.log("Arduino found in the com %s", listArduinoSerial[0].path);

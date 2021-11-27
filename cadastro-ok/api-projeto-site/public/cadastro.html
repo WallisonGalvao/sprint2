@@ -33,7 +33,7 @@
                 <li>|</li>
                 <li > <a href="login.html">Login</a> </li>
                 <li class="active" > <a href="cadastro.html">Cadastro</a> </li>
-                <li><a href="fazenda.html">Fazenda</a></li>
+                <!-- <li><a href="fazenda.html">Fazenda</a></li> -->
                 <li> <a href="contato.html">Contato</a> </li>
             </ul>
         </div>
@@ -58,10 +58,10 @@
                         <input name="cpf_cnpj" type="text" placeholder="">
                         <br>
                         Telefone Celular:
-                        <input name="celular" type="text" placeholder="000000">
+                        <input name="celular" type="text" placeholder="(DDD)9XXXX-XXXX">
                         <br>
                         Telefone Fixo:
-                        <input name="fixo" type="text" placeholder="0000000">
+                        <input name="fixo" type="text" placeholder="(ddd)XXXX-XXXX">
                         <br>
                         Email:
                         <input name="email" type="text" placeholder="usuario@gmail.com">
@@ -73,19 +73,19 @@
                         <input name="confirmacao-senha" type="password" placeholder="******">
                         <br>
                         Logradouro:
-                        <input name="logradouro" type="password">
+                        <input name="logradouro" type="text">
                         <br>
                         Número:
-                        <input name="numero" type="password" placeholder="Ex: 322">
+                        <input name="numero" type="text" placeholder="Ex: 322">
                         <br>
                         CEP:
-                        <input name="cep" type="password" placeholder="xxxxx-xx">
+                        <input name="cep" type="text" placeholder="xxxxx-xx">
                         <br>
                         Cidade:
-                        <input name="cidade" type="password" placeholder="">
+                        <input name="cidade" type="text" placeholder="">
                         <br>
                         Estado:
-                        <input name="estado" type="password" placeholder="">
+                        <input name="estado" type="text" placeholder="">
                         <br>
 
                         <button class="botao">Cadastrar</button>
@@ -161,6 +161,14 @@
             finalizarAguardar();
             return false;
         }
+
+        if (!email.endsWith(".com")) {
+            if (!email.endsWith(".br")) {
+                window.alert("Ops, e-mail inválido");
+                finalizarAguardar();
+                return false;
+            }
+        }
         
         if (senha != confirmacaoSenha) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
@@ -177,7 +185,7 @@
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
-                window.location = "setor.html";
+                window.location = "login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {

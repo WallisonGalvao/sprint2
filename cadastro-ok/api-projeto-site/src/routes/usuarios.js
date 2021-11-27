@@ -11,9 +11,9 @@ router.get("/listar", function(req, res) {
     usuarioController.listar(req, res);
 });
 
-router.post("/fazenda", function(req, res) {
-    usuarioController.fazenda(req, res);
-})
+// router.post("/fazenda", function(req, res) {
+//     usuarioController.fazenda(req, res);
+// })
 
 
 router.post("/cadastrar", function(req, res) {
