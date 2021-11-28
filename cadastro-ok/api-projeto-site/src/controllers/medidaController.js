@@ -142,6 +142,7 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarTempMax,
+    buscarTempMin,
     buscarTempMedia,
     buscarUmiMax,
     buscarUmiMin,
