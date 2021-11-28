@@ -72,6 +72,7 @@
             </div>
             <!-- <div class="graphics"> -->
                 <div class="graph">
+                    <!-- <span id="mediaUmi"></span> -->
                     <canvas id="canvas_grafico"></canvas>
                     <span id="alertaUmidadeSpan" class="alertaUsuario" />  
                     
@@ -80,8 +81,9 @@
                 </div>
                 <div class="graph">
                     <canvas id="canvas_grafico2"></canvas>
-    
+                    
                     <span id="alertaTemperaturaSpan" class="alertaUsuario" />
+                    <span id="mediaTemperatura" style="height: 10%;">testando</span>
                 </div>
             <!-- </div> -->
 
@@ -127,11 +129,14 @@
 
     }
 
+    
+
     // só altere aqui se souber o que está fazendo!
     function plotarGrafico(resposta, idAquario) {
         console.log('iniciando plotagem do gráfico...');
 
         var dados = {
+            average:[],
             labels: [],
             datasets: [
                 {
@@ -143,6 +148,7 @@
                     data: []
                 }
             ]
+            
         };
 
 
@@ -197,6 +203,7 @@
         console.log('iniciando plotagem do gráfico...');
 
         var dados = {
+            average:[],
             labels: [],
             datasets: [
                 {
@@ -283,11 +290,11 @@
 
                     window.grafico_linha.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
             }
         })
             .catch(function (error) {
@@ -316,11 +323,11 @@
 
                     window.grafico_linha2.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
             }
         })
             .catch(function (error) {
@@ -353,7 +360,7 @@
     function alertaTemperatura (temperatura) {
         if (temperatura <= 14) return cores ("critico");
 
-        if (temperatura <= 16 && temperatura < 17) return cores ("emergencia");
+        if (temperatura >= 16 && temperatura < 17) return cores ("emergencia");
 
         if (temperatura >= 17 && temperatura < 19) return cores ("alerta");
 
@@ -368,10 +375,13 @@
         return cores("normal");
     }
 
+
+    
+
     function alertaUmidade (umidade) {
         if (umidade <= 20) return cores ("critico");
 
-        if (umidade <= 25 && umidade < 30) return cores ("emergencia");
+        if (umidade >= 25 && umidade < 30) return cores ("emergencia");
 
         if (umidade >= 30 && umidade < 40) return cores ("alerta");
 
@@ -383,7 +393,7 @@
 
         if (umidade >= 70) return cores ("critico");
 
-        return cores("normal");
+        // return cores("normal");
     }
 
     function cores (tipo) {
@@ -397,14 +407,16 @@
             case "alerta":
                 return {
                     name: "em alerta",
-                    border: '#FDE74C',
-                    color: '#F2C14E',
+                    color: '#FDE74C',
+                    border: '#F2C14E',
+                    
                 };
             case "emergencia":
                 return {
                     name: "emergencial",
-                    color: '#FFB20F',
-                    border: '#FF9505',
+                    color: '#FF9505',
+                    border: '#FFB20F',
+                    
                 };
             case "critico":
                 return {
@@ -420,4 +432,29 @@
                 };
         }
     }
+
+    
+    function mediaTemp(idAquario, dados) {
+        fetch(`/medidas/temp-media/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico: ${dados}`);
+
+                   document.getElementById('mediaTemperatura').textContent = dados.average;
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+
+    }
+
+    
 </script>
