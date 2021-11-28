@@ -151,9 +151,9 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.EMAIL_USUARIO = json.EMAIL;
-                    sessionStorage.NOME_USUARIO = json.NOME_RAZAO_SOCIAL;
-                    sessionStorage.ID_USUARIO = json.IDFAZENDA;
+                    sessionStorage.EMAIL_USUARIO = json.emai;
+                    sessionStorage.NOME_USUARIO = json.nome_razao_social;
+                    sessionStorage.ID_USUARIO = json.idFazenda;
 
                     setTimeout(function () {
                         window.location = "./dashboard/dashboard.html";

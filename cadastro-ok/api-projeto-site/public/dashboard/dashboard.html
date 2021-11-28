@@ -112,6 +112,7 @@
 
         fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
+                console.log('testando',response);
                 response.json().then(function (respostaFormatadaEmJSON) {
                     console.log(`Dados recebidos: ${JSON.stringify(respostaFormatadaEmJSON)}`);
                     respostaFormatadaEmJSON.reverse();
