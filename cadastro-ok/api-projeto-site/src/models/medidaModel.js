@@ -1,14 +1,14 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario,limite_linhas) {
+function buscarUltimasMedidas(idAquario) {
     instrucaoSql = `SELECT 
                         temperatura, 
-                        umidade, 
-                        data_hora_registro,
-                        DATE_FORMAT(data_hora_registro,'%H:%i:%s') as momento_grafico
+                        umidade,
+                        data_hora_registro
+                        -- convert(varchar, getdate(), 20), convert(varchar, data_hora_registro, 20),
                         FROM [dbo].[registros]
                         WHERE fksetor= ${idAquario}
-                        ORDER BY fkSetor DESC LIMIT ${limite_linhas}`;
+                        ORDER BY fkSetor `;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -16,19 +16,21 @@ function buscarUltimasMedidas(idAquario,limite_linhas) {
 function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `SELECT temperatura, 
                             umidade, 
-                            DATE_FORMAT(data_hora_registro,'%H:%i:%s') as momento_grafico, 
+                            
                             fksetor
-                            FROM [dbo].[registros] WHERE fkSetor= ${idAquario} 
-                    ORDER BY IDREGISTRO DESC LIMIT 1`;
+                            FROM [dbo].[registros]
+                     WHERE fkSetor= ${idAquario} 
+                        ORDER BY idRegistro `;
                     
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
 function buscarTempMax(idAquario) {
-    instrucaoSql = `SELECT MAX(temperatura) AS 'TEMPERATURA MAXIMA'
+    instrucaoSql = `SELECT 
+                    MAX(temperatura) AS 'TEMPERATURA MAXIMA'
                     FROM [dbo].[registros]
-                    WHERE fkSetor = ${idAquario}`;
+                        WHERE fkSetor = ${idAquario}`;
                     
                     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);

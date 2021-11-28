@@ -23,7 +23,7 @@ function entrar(email, senha) {
 function cadastrar(nome,cpf_cnpj,celular,fixo, email, senha, logradouro, numero, cep, cidade, estado) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha, logradouro, numero, cep, cidade, estado);
     var instrucao = `
-        INSERT INTO fazenda  VALUES (null, '${nome}', '${cpf_cnpj}' , '${celular}', '${fixo}' , '${email}',
+        INSERT INTO fazenda VALUES ('${nome}', '${cpf_cnpj}' , '${celular}', '${fixo}' , '${email}',
          '${senha}', '${logradouro}', ${numero}, '${cep}', '${cidade}', '${estado}');
 
     `;
