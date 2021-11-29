@@ -4,11 +4,11 @@ function buscarUltimasMedidas(idAquario) {
     instrucaoSql = `SELECT 
                         temperatura, 
                         umidade,
-                        data_hora_registro
-                        -- convert(varchar, getdate(), 20), convert(varchar, data_hora_registro, 20),
+                        data_hora_registro,
+                        convert(varchar, getdate(), 13) momento_grafico
                         FROM [dbo].[registros]
                         WHERE fksetor= ${idAquario}
-                        ORDER BY fkSetor `;
+                        ORDER BY data_hora_registro `;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -16,11 +16,12 @@ function buscarUltimasMedidas(idAquario) {
 function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `SELECT temperatura, 
                             umidade, 
-                            
+                            data_hora_registro,
+                            convert(varchar, getdate(),13) momento_grafico,
                             fksetor
                             FROM [dbo].[registros]
                      WHERE fkSetor= ${idAquario} 
-                        ORDER BY idRegistro `;
+                        ORDER BY data_hora_registro `;
                     
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);
